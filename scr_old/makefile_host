@@ -1,0 +1,14 @@
+CC=gcc
+#CC=arm-none-linux-gnueabi-gcc
+AFLAGS=-c -g -DUPCLIENT
+LDFLAGS= -lpthread -DUPCLIENT# -L ../lib #-lsqlite3
+OBJS=client_uphost.o frame.o ledlib.o beeplib.o 
+UPclient:$(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+$(OBJS):%.o:%.c
+	$(CC) $(AFLAGS) $< -o $@
+
+.PHONY:clean
+clean:
+	rm *.o UPclient #warehouse.db
+

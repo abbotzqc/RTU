@@ -1,0 +1,803 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AFNBROADCASTSER_H	data_global.h	38;"	d
+AFNBROADCASTSER_H	linklist.h	52;"	d
+ARRAY_SIZE	beeplib.c	10;"	d	file:
+ARRAY_SIZE	ledlib.c	10;"	d	file:
+BEEP_API	beeplib.h	5;"	d
+BIT	display.c	320;"	d	file:
+BITS_PER_LONG	display.c	317;"	d	file:
+BROADCASTADDR	data_global.h	69;"	d
+DATAZONEOFFSET	data_global.h	67;"	d
+DIR_R	data_global.h	64;"	d
+DIR_T	data_global.h	65;"	d
+DISPLAY	debug.c	21;"	d	file:
+DISPLAY	display.c	28;"	d	file:
+ERR_DATAFRM	data_global.h	94;"	d
+ERR_EXEC	data_global.h	93;"	d
+ERR_NONEDATA	data_global.h	97;"	d
+ERR_ONLINE	data_global.h	95;"	d
+ERR_OVERTIME	data_global.h	92;"	d
+ERR_PASS	data_global.h	96;"	d
+EV_SYN	display.c	24;"	d	file:
+FAILD	data_global.h	85;"	d
+FD	data_global.h	72;"	d
+FRM_REGLEN	data_global.h	66;"	d
+F_CON	bak/server.c	33;"	d	file:
+F_CON	server.c	33;"	d	file:
+F_TRMID	bak/server.c	32;"	d	file:
+F_TRMID	server.c	32;"	d	file:
+IP	bak/server.c	29;"	d	file:
+IP	client_uphost.c	27;"	d	file:
+IP	server.c	29;"	d	file:
+LATESTTEST	data_global.h	80;"	d
+LEDPATH	beeplib.c	12;"	d	file:
+LEDPATH	ledlib.c	12;"	d	file:
+LED_API	ledlib.h	5;"	d
+LEN_WANH	client_uphost.c	30;"	d	file:
+LEN_WAVH	server.c	93;"	d	file:
+LOCALADDR	data_global.h	70;"	d
+LONG	display.c	321;"	d	file:
+M	bak/server.c	28;"	d	file:
+M	client_uphost.c	26;"	d	file:
+M	server.c	28;"	d	file:
+MSG	data_global.h	71;"	d
+MSGNODE_MSGTYPE	data_global.h	74;"	d
+MSGTOSER_H	data_global.h	132;"	d
+MSGTOSER_H	linklist.h	3;"	d
+MSG_MSGTYPE	data_global.h	73;"	d
+MSG_TOCLIENT	data_global.h	128;"	d
+MSG_TOSER	data_global.h	129;"	d
+N	bak/server.c	27;"	d	file:
+N	client_uphost.c	25;"	d	file:
+N	debug.c	23;"	d	file:
+N	display.c	30;"	d	file:
+N	server.c	27;"	d	file:
+NAGETIVE	bak/server.c	36;"	d	file:
+NAGETIVE	server.c	36;"	d	file:
+NBITS	display.c	318;"	d	file:
+NONE	data_global.h	98;"	d
+N_BUF	data_global.h	61;"	d
+N_DOWN	data_global.h	75;"	d
+N_FRAME	data_global.h	60;"	d
+N_NODE	bak/server.c	49;"	d	file:
+N_NODE	data_global.h	62;"	d
+N_NODE	debug.c	24;"	d	file:
+N_NODE	display.c	31;"	d	file:
+N_NODE	display.c	60;"	d	file:
+N_NODE	server.c	49;"	d	file:
+N_OPT	debug.c	25;"	d	file:
+N_OPT	display.c	32;"	d	file:
+N_READ	data_global.h	63;"	d
+OFF	data_global.h	28;"	d
+OFF	display.c	319;"	d	file:
+ON	data_global.h	27;"	d
+OUTLINE	data_global.h	87;"	d
+PASSBY	data_global.h	82;"	d
+PATH_CLIWR	data_global.h	21;"	d
+PATH_LINK	data_global.h	18;"	d
+PATH_MEDIA	data_global.h	19;"	d
+PATH_MSG	data_global.h	17;"	d
+PATH_PARM	data_global.h	15;"	d
+PATH_PARM	debug.c	26;"	d	file:
+PATH_PARM	display.c	33;"	d	file:
+PATH_SD	data_global.h	20;"	d
+PATH_SERIAL	data_global.h	14;"	d
+PATH_SERWR	data_global.h	22;"	d
+PATH_SHM	data_global.h	16;"	d
+PATH_SHM	debug.c	27;"	d	file:
+PATH_SHM	display.c	34;"	d	file:
+PATH_VAL	data_global.h	13;"	d
+PATTERN	data_global.h	59;"	d
+PATTERN_1	data_global.h	425;"	d
+PATTERN_2	data_global.h	426;"	d
+PATTERN_3	data_global.h	427;"	d
+PATTERN_4	data_global.h	428;"	d
+PORT	bak/server.c	30;"	d	file:
+PORT	client_uphost.c	28;"	d	file:
+PORT	server.c	30;"	d	file:
+POSITIVE	bak/server.c	35;"	d	file:
+POSITIVE	server.c	35;"	d	file:
+PRINTALL	debug.c	29;"	d	file:
+PRINTALL	display.c	36;"	d	file:
+PRINT_NODE_FOU	debug.c	34;"	d	file:
+PRINT_NODE_FOU	display.c	41;"	d	file:
+PRINT_NODE_ONE	debug.c	31;"	d	file:
+PRINT_NODE_ONE	display.c	38;"	d	file:
+PRINT_NODE_THR	debug.c	33;"	d	file:
+PRINT_NODE_THR	display.c	40;"	d	file:
+PRINT_NODE_TWO	debug.c	32;"	d	file:
+PRINT_NODE_TWO	display.c	39;"	d	file:
+PRINT_RTU	debug.c	30;"	d	file:
+PRINT_RTU	display.c	37;"	d	file:
+READ_PARM	data_global.h	104;"	d
+REC_CLIIP	debug.c	48;"	d	file:
+REC_CLIIP	display.c	55;"	d	file:
+REC_CLIPORT	debug.c	49;"	d	file:
+REC_CLIPORT	display.c	56;"	d	file:
+REC_DUR	data_global.h	112;"	d
+REC_DUR	debug.c	45;"	d	file:
+REC_DUR	display.c	52;"	d	file:
+REC_NODE	debug.c	43;"	d	file:
+REC_NODE	display.c	50;"	d	file:
+REC_OTC	debug.c	51;"	d	file:
+REC_OTC	display.c	58;"	d	file:
+REC_OTS	debug.c	50;"	d	file:
+REC_OTS	display.c	57;"	d	file:
+REC_OVERTC	data_global.h	110;"	d
+REC_OVERTS	data_global.h	109;"	d
+REC_REP	data_global.h	111;"	d
+REC_REP	debug.c	52;"	d	file:
+REC_RTUADDR	data_global.h	105;"	d
+REC_RTUADDR	debug.c	36;"	d	file:
+REC_RTUADDR	display.c	43;"	d	file:
+REC_RTUTYPE	data_global.h	106;"	d
+REC_RTUTYPE	debug.c	37;"	d	file:
+REC_RTUTYPE	display.c	44;"	d	file:
+REC_SEN	debug.c	44;"	d	file:
+REC_SEN	display.c	51;"	d	file:
+REC_SEQL	data_global.h	107;"	d
+REC_SEQL	debug.c	38;"	d	file:
+REC_SEQL	display.c	45;"	d	file:
+REC_SERIP	debug.c	46;"	d	file:
+REC_SERIP	display.c	53;"	d	file:
+REC_SERPORT	debug.c	47;"	d	file:
+REC_SERPORT	display.c	54;"	d	file:
+REC_SWITCH	debug.c	39;"	d	file:
+REC_SWITCH	display.c	46;"	d	file:
+REC_TIMEINT	data_global.h	108;"	d
+REC_TIMEINT1	debug.c	40;"	d	file:
+REC_TIMEINT1	display.c	47;"	d	file:
+REC_TIMEINT2	debug.c	41;"	d	file:
+REC_TIMEINT2	display.c	48;"	d	file:
+REC_TIMEINT3	debug.c	42;"	d	file:
+REC_TIMEINT3	display.c	49;"	d	file:
+REPEAT	bak/server.c	43;"	d	file:
+REPEAT	server.c	43;"	d	file:
+REQDATA_F	bak/server.c	40;"	d	file:
+REQDATA_F	server.c	40;"	d	file:
+REREQDATA_F	bak/server.c	41;"	d	file:
+REREQDATA_F	server.c	41;"	d	file:
+REVISE_TIME	bak/server.c	51;"	d	file:
+REVISE_TIME	server.c	51;"	d	file:
+RTUADDR	data_global.h	68;"	d
+RTUTYPE	data_global.h	76;"	d
+RTUVERSION_M	data_global.h	77;"	d
+RTUVERSION_S	data_global.h	78;"	d
+SHM_NULL	bak/server.c	48;"	d	file:
+SHM_NULL	server.c	48;"	d	file:
+SUCCESS	data_global.h	86;"	d
+TEST_F	bak/server.c	38;"	d	file:
+TEST_F	server.c	38;"	d	file:
+TIME	bak/server.c	58;"	d	file:
+TIME	client_uphost.c	35;"	d	file:
+TIME	server.c	58;"	d	file:
+TIME2	bak/server.c	66;"	d	file:
+TIME2	client_uphost.c	43;"	d	file:
+TIME2	server.c	66;"	d	file:
+TIME_F	bak/server.c	39;"	d	file:
+TIME_F	server.c	39;"	d	file:
+_BEEPLIB_H	beeplib.h	2;"	d
+_LEDLIB_H	ledlib.h	2;"	d
+__SEM_H__	sem.h	2;"	d
+__buf	sem.h	/^	struct seminfo  *__buf;  \/* Buffer for IPC_INFO$/;"	m	union:semun	typeref:struct:semun::seminfo
+absolutes	display.c	/^char *absolutes[ABS_MAX + 1] = {$/;"	v
+absval	display.c	/^char *absval[5] = { "Value", "Min  ", "Max  ", "Fuzz ", "Flat " };$/;"	v
+addhead	frame.c	/^char *addhead(char *buf)\/\/,unsigned char afn)$/;"	f
+addr	data_global.h	/^	unsigned char addr[4];$/;"	m	struct:msgtoser
+addr	data_global.h	/^	unsigned short addr;$/;"	m	struct:frameinfo
+addr	linklist.h	/^	unsigned char addr[4];$/;"	m	struct:msgtoser
+addr	linklist.h	/^	unsigned char addr[4];$/;"	m	struct:pass_node
+addrall	data_global.h	/^	unsigned int addrall;	$/;"	m	struct:afn02r
+afn	data_global.h	/^	unsigned char afn;$/;"	m	struct:frameinfo
+afn	data_global.h	/^	unsigned char afn;$/;"	m	struct:msgtoser
+afn	data_global.h	/^	unsigned char afn;$/;"	m	struct:passby
+afn	linklist.h	/^	unsigned char afn;$/;"	m	struct:msgtoser
+afn	linklist.h	/^	unsigned char afn;$/;"	m	struct:pass_node
+afn02r	data_global.h	/^typedef struct afn02r$/;"	s
+afn02r_s	data_global.h	/^} afn02r_s;$/;"	t	typeref:struct:afn02r
+afn04r	data_global.h	/^typedef struct afn04r$/;"	s
+afn04r_s	data_global.h	/^} afn04r_s;$/;"	t	typeref:struct:afn04r
+afn05	data_global.h	/^typedef struct afn05$/;"	s
+afn05_s	data_global.h	/^} afn05_s;$/;"	t	typeref:struct:afn05
+afn05r	data_global.h	/^typedef struct afn05r$/;"	s
+afn05r_s	data_global.h	/^} afn05r_s;$/;"	t	typeref:struct:afn05r
+afn05t	data_global.h	/^typedef struct afn05t$/;"	s
+afn05t_s	data_global.h	/^} afn05t_s;$/;"	t	typeref:struct:afn05t
+afn06r	data_global.h	/^typedef struct afn06r$/;"	s
+afn06r_s	data_global.h	/^} afn06r_s;$/;"	t	typeref:struct:afn06r
+afn06t	data_global.h	/^typedef struct afn06t$/;"	s
+afn06t_s	data_global.h	/^} afn06t_s;$/;"	t	typeref:struct:afn06t
+afnbroadt	data_global.h	/^typedef struct afnbroadt$/;"	s
+afnbroadt_s	data_global.h	/^} afnbroadt_s;$/;"	t	typeref:struct:afnbroadt
+afnbroadtser	data_global.h	/^	afnbroadtser_s afnbroadtser;$/;"	m	struct:disply_node
+afnbroadtser	data_global.h	/^typedef struct afnbroadtser		$/;"	s
+afnbroadtser	debug.c	/^	afnbroadtser_s afnbroadtser;$/;"	m	struct:disply_node	file:
+afnbroadtser	debug.c	/^typedef struct afnbroadtser		$/;"	s	file:
+afnbroadtser	display.c	/^	afnbroadtser_s afnbroadtser;$/;"	m	struct:disply_node	file:
+afnbroadtser	display.c	/^typedef struct afnbroadtser		$/;"	s	file:
+afnbroadtser	linklist.h	/^	afnbroadtser_s afnbroadtser;$/;"	m	struct:nodeprivate
+afnbroadtser	linklist.h	/^typedef struct afnbroadtser		$/;"	s
+afnbroadtser_s	data_global.h	/^} afnbroadtser_s;$/;"	t	typeref:struct:afnbroadtser
+afnbroadtser_s	debug.c	/^} afnbroadtser_s;$/;"	t	typeref:struct:afnbroadtser	file:
+afnbroadtser_s	display.c	/^} afnbroadtser_s;$/;"	t	typeref:struct:afnbroadtser	file:
+afnbroadtser_s	linklist.h	/^} afnbroadtser_s;$/;"	t	typeref:struct:afnbroadtser
+afnf1r	data_global.h	/^typedef struct afnf1r$/;"	s
+afnf1r_s	data_global.h	/^} afnf1r_s;$/;"	t	typeref:struct:afnf1r
+afnf1t	data_global.h	/^typedef struct afnf1t$/;"	s
+afnf1t_s	data_global.h	/^} afnf1t_s;$/;"	t	typeref:struct:afnf1t
+alarm	bak/server.c	/^typedef struct alarm$/;"	s	file:
+alarm	server.c	/^typedef struct alarm$/;"	s	file:
+alarm_s	bak/server.c	/^} alarm_s;$/;"	t	typeref:struct:alarm	file:
+alarm_s	server.c	/^} alarm_s;$/;"	t	typeref:struct:alarm	file:
+analysis	debug.c	/^void analysis(int optn_no,char *cmd,regmatch_t *pmatch)$/;"	f
+analysis	display.c	/^void analysis(int optn_no,char *cmd,regmatch_t *pmatch)$/;"	f
+analysis	frame.c	/^int analysis(char *bufframe,frameinfo_s *pframeinfo)                           \/\/pick up data$/;"	f
+array	sem.h	/^	unsigned short  *array;  \/* Array for GETALL, SETALL *\/$/;"	m	union:semun
+autorun_test	rturun/rturun_bak/etc/autorun.sh	/^autorun_test()$/;"	f
+beep_ctrl	beeplib.c	/^BEEP_API int beep_ctrl (char *name, int onoff)$/;"	f
+beep_tab	beeplib.c	/^struct beep_tab beep_tab[] = {$/;"	v	typeref:struct:beep_tab
+beep_tab	beeplib.h	/^struct beep_tab {$/;"	s
+buf	data_global.h	/^	unsigned char buf[1048];$/;"	m	struct:msgtocli
+buf	data_global.h	/^	unsigned char buf[64];$/;"	m	struct:msgtoser
+buf	linklist.h	/^	unsigned char buf[24];$/;"	m	struct:test_node
+buf	linklist.h	/^	unsigned char buf[32][1025];$/;"	m	struct:store_node
+buf	linklist.h	/^	unsigned char buf[64];$/;"	m	struct:msgtoser
+buf	linklist.h	/^	unsigned char buf[64];$/;"	m	struct:pass_node
+buf	sem.h	/^	struct semid_ds *buf;    \/* Buffer for IPC_STAT, IPC_SET *\/$/;"	m	union:semun	typeref:struct:semun::semid_ds
+buf32k	client_uphost.c	/^unsigned char buf32k[32][1048]={}; $/;"	v
+bufdata	client_uphost.c	/^unsigned char bufdata[680]={};			\/\/send frame buf zone$/;"	v
+bufframe	client_uphost.c	/^unsigned char *bufframe;$/;"	v
+bufr	client_uphost.c	/^unsigned char bufr[48]={};				\/\/receive buf zone$/;"	v
+buft	client_uphost.c	/^unsigned char buft[1048]={};				\/\/send buf zone$/;"	v
+cap_sd	client_uphost.c	/^unsigned short cap_sd=0xffff;               \/\/sd card capacity  $/;"	v
+change_i	frame.c	/^void change_i(unsigned int *ptr)$/;"	f
+change_s	frame.c	/^void change_s(unsigned short *ptr)$/;"	f
+cmd_CreateLinklist	linklist.c	/^cmd_linklist* cmd_CreateLinklist()$/;"	f
+cmd_EmptyLinklist	linklist.c	/^int cmd_EmptyLinklist(cmd_linklist* h)$/;"	f
+cmd_GetLinknode	linklist.c	/^cmd_linklist* cmd_GetLinknode(cmd_linklist *h)$/;"	f
+cmd_InsertLinklist_tail	linklist.c	/^void cmd_InsertLinklist_tail(cmd_linklist* h,frametype x,unsigned short data,unsigned char timeintno)$/;"	f
+cmd_LengthLinklist	linklist.c	/^int cmd_LengthLinklist(cmd_linklist* h)$/;"	f
+cmd_head	linklist.h	/^	cmd_linklist *cmd_head;                      \/\/self_report node get frame from it$/;"	m	struct:nodeprivate
+cmd_linklist	linklist.h	/^} cmd_linklist;$/;"	t	typeref:struct:cmd_node
+cmd_node	linklist.h	/^typedef struct cmd_node$/;"	s
+cond_fddata	data_global.h	/^pthread_cond_t cond_fddata;$/;"	v
+cond_fderrlog	data_global.h	/^pthread_cond_t cond_fderrlog;$/;"	v
+cond_framere	data_global.h	/^pthread_cond_t cond_framere;$/;"	v
+cond_led	data_global.h	/^pthread_cond_t cond_led;$/;"	v
+cond_readlog	data_global.h	/^pthread_cond_t cond_readlog;$/;"	v
+cond_sdsize	data_global.h	/^pthread_cond_t cond_sdsize;$/;"	v
+cond_shm	data_global.h	/^pthread_cond_t cond_shm;$/;"	v
+cond_storehead	data_global.h	/^pthread_cond_t	cond_testhead,cond_testtail,cond_storehead;$/;"	v
+cond_tab	debug.c	/^pthread_cond_t cond_tab;$/;"	v
+cond_tab	display.c	/^pthread_cond_t cond_tab;$/;"	v
+cond_testhead	data_global.h	/^pthread_cond_t	cond_testhead,cond_testtail,cond_storehead;$/;"	v
+cond_testtail	data_global.h	/^pthread_cond_t	cond_testhead,cond_testtail,cond_storehead;$/;"	v
+cond_write	data_global.h	/^pthread_cond_t cond_write;$/;"	v
+connectfd	bak/server.c	/^	unsigned char connectfd;$/;"	m	struct:whichnode	file:
+connectfd	linklist.h	/^	unsigned int connectfd;					     \/\/connectfd$/;"	m	struct:nodeprivate
+connectfd	server.c	/^	unsigned char connectfd;$/;"	m	struct:whichnode	file:
+count	display.c	/^int count=0;$/;"	v
+crc	frame.c	/^unsigned short crc(unsigned char *ptr,int bufflen)$/;"	f
+ctoi_bcd	frame.c	/^int ctoi_bcd(unsigned char c)$/;"	f
+curr	data_global.h	/^	unsigned short curr;$/;"	m	struct:shm
+curr	debug.c	/^	unsigned short curr;$/;"	m	struct:shm	file:
+curr	display.c	/^	unsigned short curr;$/;"	m	struct:shm	file:
+data	data_global.h	/^	char data[1024];$/;"	m	struct:afnf1t
+data	data_global.h	/^	unsigned char data[1024];$/;"	m	struct:afn06t
+datalen	data_global.h	/^	unsigned short datalen;$/;"	m	struct:frameinfo
+day	data_global.h	/^	int day;$/;"	m	struct:afn04r
+day	data_global.h	/^	int day;$/;"	m	struct:afn06r
+day	data_global.h	/^	unsigned int day;$/;"	m	struct:afn05r
+day	data_global.h	/^	unsigned int day;$/;"	m	struct:afn05t
+day_rec	data_global.h	/^	unsigned char day_rec;$/;"	m	struct:nodemsg
+disply_node	data_global.h	/^	disply_node_s disply_node[4];$/;"	m	struct:shm
+disply_node	data_global.h	/^typedef struct disply_node$/;"	s
+disply_node	debug.c	/^	disply_node_s disply_node[4];$/;"	m	struct:shm	file:
+disply_node	debug.c	/^typedef struct disply_node$/;"	s	file:
+disply_node	display.c	/^	disply_node_s disply_node[4];$/;"	m	struct:shm	file:
+disply_node	display.c	/^typedef struct disply_node$/;"	s	file:
+disply_node_s	data_global.h	/^} disply_node_s;$/;"	t	typeref:struct:disply_node
+disply_node_s	debug.c	/^} disply_node_s;$/;"	t	typeref:struct:disply_node	file:
+disply_node_s	display.c	/^} disply_node_s;$/;"	t	typeref:struct:disply_node	file:
+disply_shm	debug.c	/^shm_s disply_shm;$/;"	v
+disply_shm	display.c	/^shm_s disply_shm;$/;"	v
+duration	bak/server.c	/^unsigned int duration;$/;"	v
+duration	client_uphost.c	/^unsigned int duration;$/;"	v
+duration	debug.c	/^unsigned int duration;$/;"	v
+duration	display.c	/^unsigned int duration;$/;"	v
+duration	server.c	/^unsigned int duration;$/;"	v
+earntime	debug.c	/^void earntime(time_t t,unsigned char *string)$/;"	f
+earntime	display.c	/^void earntime(time_t t,unsigned char *string)$/;"	f
+events	display.c	/^char *events[EV_MAX + 1] = {$/;"	v
+flag_led	bak/server.c	/^char flag_led;                                   \/\/ -1--turn off  >0--booling  1--node login  2--node outline $/;"	v
+flag_led	client_uphost.c	/^unsigned char flag_led;            \/\/ 1-loop$/;"	v
+flag_led	server.c	/^char flag_led;                                   \/\/ -1--turn off  >0--booling  1--node login  2--node outline $/;"	v
+flag_loop	client_uphost.c	/^unsigned char flag_loop=0;           		\/\/32kb flag$/;"	v
+flag_online	bak/server.c	/^unsigned char flag_online=0;                     \/\/used for judging which node is online,order is node : 4 3 2 1  			online--1$/;"	v
+flag_online	data_global.h	/^	unsigned char flag_online;$/;"	m	struct:shm
+flag_online	debug.c	/^	unsigned char flag_online;$/;"	m	struct:shm	file:
+flag_online	display.c	/^	unsigned char flag_online;$/;"	m	struct:shm	file:
+flag_online	server.c	/^unsigned char flag_online=0;                     \/\/used for judging which node is online,order is node : 4 3 2 1  			online--1$/;"	v
+flag_passby	client_uphost.c	/^unsigned char flag_passby;                  \/\/PASSBY frame flag$/;"	v
+flag_reason	client_uphost.c	/^unsigned char flag_reason;                  \/\/wrong reason$/;"	v
+flag_tab	display.c	/^unsigned char flag_tab=0;$/;"	v
+flag_timeint	linklist.h	/^	unsigned char flag_timeint[3];				  \/\/flag_timeint[n]==0x3f symbol in n-1 interval time the data of each six sensors asked compeletly$/;"	m	struct:nodeprivate
+frame	linklist.h	/^	frametype frame;				\/\/macro $/;"	m	struct:cmd_node
+framedata	linklist.h	/^	unsigned short framedata;                  \/\/used for 0xf0 & 0xf1   $/;"	m	struct:cmd_node
+frameinfo	data_global.h	/^typedef struct frameinfo$/;"	s
+frameinfo_s	data_global.h	/^} frameinfo_s;$/;"	t	typeref:struct:frameinfo
+frameloc	data_global.h	/^typedef struct frameloc$/;"	s
+frameloc_s	data_global.h	/^} frameloc_s;$/;"	t	typeref:struct:frameloc
+frameno	data_global.h	/^	int frameno;$/;"	m	struct:afn06t
+frameno	data_global.h	/^	int frameno;$/;"	m	struct:afnf1r
+frameno	data_global.h	/^	int frameno;$/;"	m	struct:afnf1t
+frametype	linklist.h	/^typedef unsigned char frametype;$/;"	t
+funafn02r	frame.c	/^int funafn02r(afn02r_s *pafn,char *pdata)$/;"	f
+funafn02t	frame.c	/^int funafn02t(char *bufdata,int flag_reason)$/;"	f
+funafn04r	frame.c	/^int funafn04r(afn04r_s *pafn,unsigned char *pdata)$/;"	f
+funafn04t	frame.c	/^int funafn04t(char *bufdata,int flag_reason)$/;"	f
+funafn04tser	frame.c	/^int funafn04tser(unsigned char *buft,unsigned char nodeno,unsigned char seqs)$/;"	f
+funafn05r	frame.c	/^int funafn05r(afn05r_s *pafn,char *pdata)$/;"	f
+funafn05t	frame.c	/^int funafn05t(unsigned char *bufdata,afn05t_s *pafn)$/;"	f
+funafn06r	frame.c	/^int funafn06r(afn06r_s *pafn,char *pdata)$/;"	f
+funafn06t	frame.c	/^int funafn06t(unsigned char *bufdata,afn06t_s *pafn,unsigned char flag_reason)$/;"	f
+funafnbroadcastser	frame.c	/^int funafnbroadcastser(afnbroadtser_s *pafn,unsigned char *pdata)              \/\/receive$/;"	f
+funafnbroadcastt	frame.c	/^int funafnbroadcastt(unsigned char *bufdata,afnbroadt_s *pafn)$/;"	f
+funafnf0tser	frame.c	/^int funafnf0tser(unsigned char *buft,unsigned char nodeaddr,unsigned char seqs,unsigned char sensorno)$/;"	f
+funafnf1r	frame.c	/^int funafnf1r(afnf1r_s *pafn,char *pdata)$/;"	f
+funafnf1t	frame.c	/^int funafnf1t(char *bufdata,afnf1t_s *pafn)$/;"	f
+funafnf1tser	frame.c	/^int funafnf1tser(unsigned char *buft,unsigned char nodeaddr,unsigned char seqs,unsigned short which)\/\/,unsigned char sensorno)$/;"	f
+funafnf3r	frame.c	/^int funafnf3r(unsigned char *pdata)$/;"	f
+funafnf3t	frame.c	/^int funafnf3t(char *bufdata,int flag_reason)$/;"	f
+funafnpass	frame.c	/^int funafnpass(unsigned char *bufdata,unsigned char flag_reason,msgtoser_s *pmsgbuf)$/;"	f
+funhandler	bak/server.c	/^void funhandler(int nodeno)$/;"	f
+funhandler	server.c	/^void funhandler(int nodeno)$/;"	f
+funoutline	frame.c	/^int funoutline(msgtoser_s *msgbuf,msgtocli_s *msgbuff)$/;"	f
+funouttime	frame.c	/^int funouttime(msgtocli_s *msgbuf,unsigned char *addr,unsigned char seq,unsigned char afn)$/;"	f
+handler	display.c	/^void handler(int signo)$/;"	f
+handler_alarm	debug.c	/^void handler_alarm(int signo)$/;"	f
+handler_four	bak/server.c	/^void handler_four(int signo)$/;"	f
+handler_four	server.c	/^void handler_four(int signo)$/;"	f
+handler_led	bak/server.c	/^void handler_led(int signo)$/;"	f
+handler_led	client_uphost.c	/^void handler_led(int signo)$/;"	f
+handler_led	server.c	/^void handler_led(int signo)$/;"	f
+handler_one	bak/server.c	/^void handler_one(int signo)$/;"	f
+handler_one	server.c	/^void handler_one(int signo)$/;"	f
+handler_parm	client_uphost.c	/^void handler_parm(int signo)$/;"	f
+handler_parm	display.c	/^void handler_parm(int signo)$/;"	f
+handler_parm	server.c	/^void handler_parm(int signo)$/;"	f
+handler_three	bak/server.c	/^void handler_three(int signo)$/;"	f
+handler_three	server.c	/^void handler_three(int signo)$/;"	f
+handler_two	bak/server.c	/^void handler_two(int signo)$/;"	f
+handler_two	server.c	/^void handler_two(int signo)$/;"	f
+hostIP	client_uphost.c	/^unsigned char hostIP[16];$/;"	v
+hostIP	debug.c	/^unsigned char hostIP[16];$/;"	v
+hostIP	display.c	/^unsigned char hostIP[16];$/;"	v
+hostPORT	client_uphost.c	/^unsigned char hostPORT[6];$/;"	v
+hostPORT	debug.c	/^unsigned char hostPORT[6];$/;"	v
+hostPORT	display.c	/^unsigned char hostPORT[6];$/;"	v
+hour	data_global.h	/^	int hour;$/;"	m	struct:afn04r
+hour	data_global.h	/^	int hour;$/;"	m	struct:afn06r
+hour	data_global.h	/^	unsigned char hour;$/;"	m	struct:afn05
+hour	data_global.h	/^	unsigned int hour;\/\/timeint$/;"	m	struct:afn05r
+hour_rec	data_global.h	/^	unsigned char hour_rec;$/;"	m	struct:nodemsg
+id_UPclient	client_uphost.c	/^		    id_UPclient,$/;"	v
+id_alarm1	data_global.h	/^pthread_t id_alarm1;$/;"	v
+id_alarm2	data_global.h	/^pthread_t id_alarm2;$/;"	v
+id_alarm3	data_global.h	/^pthread_t id_alarm3;$/;"	v
+id_alarm4	data_global.h	/^pthread_t id_alarm4;$/;"	v
+id_beep	bak/server.c	/^pthread_t id_beep,$/;"	v
+id_beep	server.c	/^pthread_t id_beep,$/;"	v
+id_framere	client_uphost.c	/^		    id_framere,$/;"	v
+id_key	debug.c	/^pthread_t id_shm,id_parm,id_key;$/;"	v
+id_key	display.c	/^pthread_t id_shm,id_parm,id_key;$/;"	v
+id_led	bak/server.c	/^		  id_led,$/;"	v
+id_led	client_uphost.c	/^pthread_t 	id_led,$/;"	v
+id_led	server.c	/^		  id_led,$/;"	v
+id_msg	bak/server.c	/^		  id_msg,$/;"	v
+id_msg	server.c	/^		  id_msg,$/;"	v
+id_msgser	data_global.h	/^pthread_t id_msgser;$/;"	v
+id_parm	bak/server.c	/^		  id_parm,$/;"	v
+id_parm	client_uphost.c	/^			id_parm,$/;"	v
+id_parm	debug.c	/^pthread_t id_shm,id_parm,id_key;$/;"	v
+id_parm	display.c	/^pthread_t id_shm,id_parm,id_key;$/;"	v
+id_parm	server.c	/^		  id_parm,$/;"	v
+id_restore32kb	bak/server.c	/^		  id_restore32kb;$/;"	v
+id_restore32kb	server.c	/^		  id_restore32kb;$/;"	v
+id_sdsize	client_uphost.c	/^			id_sdsize,$/;"	v
+id_shm	bak/server.c	/^		  id_shm,$/;"	v
+id_shm	client_uphost.c	/^		    id_shm;$/;"	v
+id_shm	debug.c	/^pthread_t id_shm,id_parm,id_key;$/;"	v
+id_shm	display.c	/^pthread_t id_shm,id_parm,id_key;$/;"	v
+id_shm	server.c	/^		  id_shm,$/;"	v
+id_shmser	data_global.h	/^pthread_t id_shmser;$/;"	v
+id_test	bak/server.c	/^		  id_test,$/;"	v
+id_test	server.c	/^		  id_test,$/;"	v
+id_vol	client_uphost.c	/^			id_vol,$/;"	v
+init_sem	sem.h	/^int init_sem(int semid, int num, int val)$/;"	f
+ip	bak/server.c	/^	unsigned char ip[16];$/;"	m	struct:whichnode	file:
+ip	data_global.h	/^	char *ip;$/;"	m	struct:ipinfo
+ip	data_global.h	/^	unsigned char ip[16];$/;"	m	struct:disply_node
+ip	debug.c	/^	unsigned char ip[16];$/;"	m	struct:disply_node	file:
+ip	display.c	/^	unsigned char ip[16];$/;"	m	struct:disply_node	file:
+ip	linklist.h	/^	unsigned char ip[16];$/;"	m	struct:nodeprivate
+ip	server.c	/^	unsigned char ip[16];$/;"	m	struct:whichnode	file:
+ipinfo	data_global.h	/^typedef struct ipinfo$/;"	s
+ipinfo_s	data_global.h	/^} ipinfo_s;$/;"	t	typeref:struct:ipinfo
+itoc_bcd	frame.c	/^unsigned char itoc_bcd(int i)$/;"	f
+keys	display.c	/^char *keys[KEY_MAX + 1] = {$/;"	v
+led_ctrl	ledlib.c	/^LED_API int led_ctrl (char *name, int onoff)$/;"	f
+led_tab	ledlib.c	/^struct led_tab led_tab[] = {$/;"	v	typeref:struct:led_tab
+led_tab	ledlib.h	/^struct led_tab {$/;"	s
+leds	display.c	/^char *leds[LED_MAX + 1] = {$/;"	v
+len	data_global.h	/^	int  len;$/;"	m	struct:frameloc
+load_keyArray_driver	rturun/rturun_bak/etc/autorun.sh	/^load_keyArray_driver()$/;"	f
+main	bak/server.c	/^int main(int argc, const char *argv[])$/;"	f
+main	client_uphost.c	/^int main(int argc, const char *argv[])                            \/\/client_uphost$/;"	f
+main	debug.c	/^int main(int argc, const char *argv[])$/;"	f
+main	display.c	/^int main(int argc, const char *argv[])$/;"	f
+main	server.c	/^int main(int argc, const char *argv[])$/;"	f
+min	data_global.h	/^	int min;$/;"	m	struct:afn04r
+min	data_global.h	/^	int min;$/;"	m	struct:afn06r
+min	data_global.h	/^	unsigned char min;$/;"	m	struct:afn05
+min_rec	data_global.h	/^	unsigned char min_rec;$/;"	m	struct:nodemsg
+misc	display.c	/^char *misc[MSC_MAX + 1] = {$/;"	v
+month	data_global.h	/^	int month;$/;"	m	struct:afn04r
+month	data_global.h	/^	int month;$/;"	m	struct:afn06r
+month	data_global.h	/^	unsigned int month;$/;"	m	struct:afn05r
+month	data_global.h	/^	unsigned int month;$/;"	m	struct:afn05t
+month_rec	data_global.h	/^	unsigned char month_rec;$/;"	m	struct:nodemsg
+msgid	data_global.h	/^int msgid;$/;"	v
+msgnode	data_global.h	/^typedef struct msgnode$/;"	s
+msgnode_s	data_global.h	/^} msgnode_s;$/;"	t	typeref:struct:msgnode
+msgtocli	data_global.h	/^typedef struct msgtocli$/;"	s
+msgtocli_s	data_global.h	/^} msgtocli_s;$/;"	t	typeref:struct:msgtocli
+msgtoser	data_global.h	/^typedef struct msgtoser$/;"	s
+msgtoser	linklist.h	/^typedef struct msgtoser$/;"	s
+msgtoser_s	data_global.h	/^} msgtoser_s;$/;"	t	typeref:struct:msgtoser
+msgtoser_s	linklist.h	/^} msgtoser_s;$/;"	t	typeref:struct:msgtoser
+msgtype	data_global.h	/^	long msgtype;                 \/\/2  MSGNODE_MSGTYPE$/;"	m	struct:msgnode
+msgtype	data_global.h	/^	long msgtype;               $/;"	m	struct:msgtoser
+msgtype	data_global.h	/^	long msgtype;$/;"	m	struct:msgtocli
+msgtype	linklist.h	/^	long msgtype;               $/;"	m	struct:msgtoser
+mutex_bufr	data_global.h	/^pthread_mutex_t mutex_bufr;$/;"	v
+mutex_buft	data_global.h	/^pthread_mutex_t mutex_buft;$/;"	v
+mutex_errno	data_global.h	/^pthread_mutex_t mutex_errno;$/;"	v
+mutex_led	data_global.h	/^pthread_mutex_t mutex_led;$/;"	v
+mutex_online	data_global.h	/^pthread_mutex_t mutex_online;$/;"	v
+mutex_parm_loc	debug.c	/^pthread_mutex_t mutex_shmbuf,mutex_parm_loc,mutex_tab;$/;"	v
+mutex_parm_loc	display.c	/^pthread_mutex_t mutex_shmbuf,mutex_parm_loc,mutex_tab;$/;"	v
+mutex_sdsize	data_global.h	/^pthread_mutex_t mutex_sdsize;$/;"	v
+mutex_shmbuf	data_global.h	/^pthread_mutex_t mutex_shmbuf;$/;"	v
+mutex_shmbuf	debug.c	/^pthread_mutex_t mutex_shmbuf,mutex_parm_loc,mutex_tab;$/;"	v
+mutex_shmbuf	display.c	/^pthread_mutex_t mutex_shmbuf,mutex_parm_loc,mutex_tab;$/;"	v
+mutex_storehead	data_global.h	/^pthread_mutex_t mutex_storehead,$/;"	v
+mutex_storetail	data_global.h	/^				mutex_storetail,$/;"	v
+mutex_tab	debug.c	/^pthread_mutex_t mutex_shmbuf,mutex_parm_loc,mutex_tab;$/;"	v
+mutex_tab	display.c	/^pthread_mutex_t mutex_shmbuf,mutex_parm_loc,mutex_tab;$/;"	v
+mutex_testhead	data_global.h	/^				mutex_testhead,$/;"	v
+mutex_testtail	data_global.h	/^				mutex_testtail;$/;"	v
+n_node	debug.c	/^unsigned int n_node;$/;"	v
+n_node	display.c	/^unsigned int n_node;$/;"	v
+n_sen	debug.c	/^unsigned int n_sen;$/;"	v
+n_sen	display.c	/^unsigned int n_sen;$/;"	v
+name	beeplib.h	/^    char name[8];$/;"	m	struct:beep_tab
+name	ledlib.h	/^    char name[8];$/;"	m	struct:led_tab
+names	display.c	/^char **names[EV_MAX + 1] = {$/;"	v
+network_start	rturun/rturun_bak/etc/autorun.sh	/^network_start()$/;"	f
+next	linklist.h	/^	struct cmd_node *next;$/;"	m	struct:cmd_node	typeref:struct:cmd_node::cmd_node
+next	linklist.h	/^	struct pass_node *next;$/;"	m	struct:pass_node	typeref:struct:pass_node::pass_node
+next	linklist.h	/^	struct store_node *next;$/;"	m	struct:store_node	typeref:struct:store_node::store_node
+next	linklist.h	/^	struct test_node *next;$/;"	m	struct:test_node	typeref:struct:test_node::test_node
+node_addr	bak/server.c	/^	unsigned char node_addr;$/;"	m	struct:whichnode	file:
+node_addr	data_global.h	/^	unsigned char node_addr;$/;"	m	struct:disply_node
+node_addr	debug.c	/^	unsigned char node_addr;$/;"	m	struct:disply_node	file:
+node_addr	display.c	/^	unsigned char node_addr;$/;"	m	struct:disply_node	file:
+node_addr	linklist.h	/^	unsigned char node_addr;                      \/\/node addr$/;"	m	struct:nodeprivate
+node_addr	server.c	/^	unsigned char node_addr;$/;"	m	struct:whichnode	file:
+nodecir	data_global.h	/^	unsigned char nodecir[2];$/;"	m	struct:afnbroadtser
+nodecir	data_global.h	/^	unsigned char nodecir[2];$/;"	m	struct:nodemsg
+nodecir	debug.c	/^	unsigned char nodecir[2];$/;"	m	struct:afnbroadtser	file:
+nodecir	display.c	/^	unsigned char nodecir[2];$/;"	m	struct:afnbroadtser	file:
+nodecir	linklist.h	/^	unsigned char nodecir[2];$/;"	m	struct:afnbroadtser
+nodemode	data_global.h	/^	unsigned char nodemode;$/;"	m	struct:nodemsg
+nodemsg	data_global.h	/^	nodemsg_s nodemsg;$/;"	m	struct:msgnode
+nodemsg	data_global.h	/^	nodemsg_s nodemsg[N_NODE];$/;"	m	struct:afnbroadt
+nodemsg	data_global.h	/^typedef struct nodemsg$/;"	s
+nodemsg_s	data_global.h	/^} nodemsg_s;$/;"	t	typeref:struct:nodemsg
+nodeno	bak/server.c	/^	unsigned char nodeno;$/;"	m	struct:alarm	file:
+nodeno	data_global.h	/^	unsigned char nodeno;$/;"	m	struct:afn05
+nodeno	data_global.h	/^	unsigned char nodeno;$/;"	m	struct:afn05r
+nodeno	data_global.h	/^	unsigned char nodeno;$/;"	m	struct:afn06r
+nodeno	linklist.h	/^	unsigned char nodeno;$/;"	m	struct:store_node
+nodeno	linklist.h	/^	unsigned char nodeno;$/;"	m	struct:test_node
+nodeno	server.c	/^	unsigned char nodeno;$/;"	m	struct:alarm	file:
+nodenum	data_global.h	/^	int nodenum;$/;"	m	struct:msgnode
+nodeprivate	bak/server.c	/^nodeprivate_s nodeprivate[N_NODE];$/;"	v
+nodeprivate	linklist.h	/^typedef struct nodeprivate$/;"	s
+nodeprivate	server.c	/^nodeprivate_s nodeprivate[N_NODE];$/;"	v
+nodeprivate_s	linklist.h	/^} nodeprivate_s;$/;"	t	typeref:struct:nodeprivate
+nodetime	data_global.h	/^	unsigned char nodetime[7];$/;"	m	struct:afnbroadtser
+nodetime	data_global.h	/^	unsigned char nodetime[7];$/;"	m	struct:nodemsg
+nodetime	debug.c	/^	unsigned char nodetime[7];$/;"	m	struct:afnbroadtser	file:
+nodetime	display.c	/^	unsigned char nodetime[7];$/;"	m	struct:afnbroadtser	file:
+nodetime	linklist.h	/^	unsigned char nodetime[7];$/;"	m	struct:afnbroadtser
+nodeversion	data_global.h	/^	unsigned char nodeversion[2]; $/;"	m	struct:afnbroadtser
+nodeversion	data_global.h	/^	unsigned char nodeversion[2];$/;"	m	struct:nodemsg
+nodeversion	debug.c	/^	unsigned char nodeversion[2]; $/;"	m	struct:afnbroadtser	file:
+nodeversion	display.c	/^	unsigned char nodeversion[2]; $/;"	m	struct:afnbroadtser	file:
+nodeversion	linklist.h	/^	unsigned char nodeversion[2]; $/;"	m	struct:afnbroadtser
+nodevolt	data_global.h	/^	unsigned char nodevolt[2];$/;"	m	struct:afnbroadtser
+nodevolt	data_global.h	/^	unsigned char nodevolt[2];$/;"	m	struct:nodemsg
+nodevolt	debug.c	/^	unsigned char nodevolt[2];$/;"	m	struct:afnbroadtser	file:
+nodevolt	display.c	/^	unsigned char nodevolt[2];$/;"	m	struct:afnbroadtser	file:
+nodevolt	linklist.h	/^	unsigned char nodevolt[2];$/;"	m	struct:afnbroadtser
+num	data_global.h	/^	unsigned short num;$/;"	m	struct:frameinfo
+optionname	debug.c	/^char optionname[N_OPT][96]={"(interval)(([1,2,3][0,1][0,1,2][0-9]){1,3})",                \/\/ number --1$/;"	v
+optionname	display.c	/^char optionname[N_OPT][96]={"(interval)(([1,2,3][0,1][0,1,2][0-9]){1,3})",                \/\/ number --1$/;"	v
+overtime_client	client_uphost.c	/^unsigned char overtime_client;$/;"	v
+overtime_client	debug.c	/^	unsigned char overtime_client;$/;"	m	struct:shm	file:
+overtime_client	debug.c	/^int overtime_client;$/;"	v
+overtime_client	display.c	/^int overtime_client;$/;"	v
+overtime_server	bak/server.c	/^unsigned char overtime_server;                             \/\/second for unit$/;"	v
+overtime_server	client_uphost.c	/^unsigned char overtime_server;$/;"	v
+overtime_server	data_global.h	/^	unsigned char overtime_server;$/;"	m	struct:shm
+overtime_server	debug.c	/^	unsigned char overtime_server;$/;"	m	struct:shm	file:
+overtime_server	debug.c	/^int overtime_server;$/;"	v
+overtime_server	display.c	/^	unsigned char overtime_server;$/;"	m	struct:shm	file:
+overtime_server	display.c	/^int overtime_server;$/;"	v
+overtime_server	server.c	/^unsigned char overtime_server;                             \/\/second for unit$/;"	v
+pafn05	data_global.h	/^	afn05_s *pafn05;$/;"	m	struct:afn05t
+pass_CreateLinklist	linklist.c	/^pass_linklist* pass_CreateLinklist()$/;"	f
+pass_EmptyLinklist	linklist.c	/^int pass_EmptyLinklist(pass_linklist* h)$/;"	f
+pass_GetLinknode	linklist.c	/^pass_linklist* pass_GetLinknode(pass_linklist* h)$/;"	f
+pass_InsertLinklist_tail	linklist.c	/^void pass_InsertLinklist_tail(pass_linklist *h,msgtoser_s *pmsgbuf)\/\/unsigned char afn,unsigned char seq,unsigned char* buf)$/;"	f
+pass_LengthLinklist	linklist.c	/^int pass_LengthLinklist(pass_linklist* h)$/;"	f
+pass_head	linklist.h	/^	pass_linklist *pass_head;                    \/\/get passby frame from it$/;"	m	struct:nodeprivate
+pass_linklist	linklist.h	/^} pass_linklist;$/;"	t	typeref:struct:pass_node
+pass_node	linklist.h	/^typedef struct pass_node$/;"	s
+passby	data_global.h	/^typedef struct passby$/;"	s
+passby_s	data_global.h	/^} passby_s;$/;"	t	typeref:struct:passby
+pdata	data_global.h	/^	unsigned char *pdata;$/;"	m	struct:frameinfo
+phead	data_global.h	/^	char  *phead;$/;"	m	struct:frameloc
+port	bak/server.c	/^	unsigned int port;$/;"	m	struct:whichnode	file:
+port	data_global.h	/^	int port;$/;"	m	struct:ipinfo
+port	data_global.h	/^	unsigned int port;$/;"	m	struct:disply_node
+port	debug.c	/^	unsigned int port;$/;"	m	struct:disply_node	file:
+port	display.c	/^	unsigned int port;$/;"	m	struct:disply_node	file:
+port	linklist.h	/^	unsigned int port;$/;"	m	struct:nodeprivate
+port	server.c	/^	unsigned int port;$/;"	m	struct:whichnode	file:
+print	debug.c	/^void print(int which)$/;"	f
+print	display.c	/^void print(int which)$/;"	f
+pthread_UPclient	client_uphost.c	/^void *pthread_UPclient(void *arg)$/;"	f
+pthread_beep	bak/server.c	/^void *pthread_beep(void *arg)$/;"	f
+pthread_beep	server.c	/^void *pthread_beep(void *arg)$/;"	f
+pthread_dealclient	bak/server.c	/^void *pthread_dealclient(void *arg)$/;"	f
+pthread_dealclient	server.c	/^void *pthread_dealclient(void *arg)$/;"	f
+pthread_framere	client_uphost.c	/^void *pthread_framere(void *arg)$/;"	f
+pthread_key	debug.c	/^void *pthread_key(void *arg)$/;"	f
+pthread_key	display.c	/^void *pthread_key(void *arg)$/;"	f
+pthread_led	bak/server.c	/^void *pthread_led(void *arg)$/;"	f
+pthread_led	client_uphost.c	/^void *pthread_led(void *arg)$/;"	f
+pthread_led	server.c	/^void *pthread_led(void *arg)$/;"	f
+pthread_msg	bak/server.c	/^void *pthread_msg(void *arg)$/;"	f
+pthread_msg	server.c	/^void *pthread_msg(void *arg)$/;"	f
+pthread_parm	bak/server.c	/^void *pthread_parm(void *arg)$/;"	f
+pthread_parm	client_uphost.c	/^void *pthread_parm(void *arg)$/;"	f
+pthread_parm	debug.c	/^void *pthread_parm(void *arg)$/;"	f
+pthread_parm	display.c	/^void *pthread_parm(void *arg)$/;"	f
+pthread_parm	server.c	/^void *pthread_parm(void *arg)$/;"	f
+pthread_restore32kb	bak/server.c	/^void *pthread_restore32kb(void *arg)$/;"	f
+pthread_restore32kb	server.c	/^void *pthread_restore32kb(void *arg)$/;"	f
+pthread_sdsize	client_uphost.c	/^void *pthread_sdsize(void *arg)$/;"	f
+pthread_shm	bak/server.c	/^void *pthread_shm(void *arg)$/;"	f
+pthread_shm	client_uphost.c	/^void *pthread_shm(void *arg)$/;"	f
+pthread_shm	debug.c	/^void *pthread_shm(void *arg)$/;"	f
+pthread_shm	display.c	/^void *pthread_shm(void *arg)$/;"	f
+pthread_shm	server.c	/^void *pthread_shm(void *arg)$/;"	f
+pthread_testframe	bak/server.c	/^void *pthread_testframe(void *arg)$/;"	f
+pthread_testframe	server.c	/^void *pthread_testframe(void *arg)$/;"	f
+pthread_vol	client_uphost.c	/^void *pthread_vol(void *arg)$/;"	f
+rec_parm	debug.c	/^int rec_parm(int cmd)$/;"	f
+rec_parm	display.c	/^int rec_parm(int cmd)$/;"	f
+recordsum	data_global.h	/^	unsigned char recordsum;$/;"	m	struct:afn05t
+relatives	display.c	/^char *relatives[REL_MAX + 1] = {$/;"	v
+releaseresouce	bak/server.c	/^void releaseresouce(int signo)$/;"	f
+releaseresouce	client_uphost.c	/^void releaseresouce(int signo)$/;"	f
+releaseresouce	debug.c	/^void releaseresouce(void)$/;"	f
+releaseresouce	display.c	/^void releaseresouce(void)$/;"	f
+releaseresouce	server.c	/^void releaseresouce(int signo)$/;"	f
+repeats	display.c	/^char *repeats[REP_MAX + 1] = {$/;"	v
+rtuaddr	bak/server.c	/^unsigned char rtuaddr;$/;"	v
+rtuaddr	client_uphost.c	/^unsigned short rtuaddr=RTUADDR;             \/\/record bak$/;"	v
+rtuaddr	debug.c	/^unsigned short rtuaddr;$/;"	v
+rtuaddr	display.c	/^unsigned short rtuaddr;$/;"	v
+rtuaddr	server.c	/^unsigned char rtuaddr;$/;"	v
+rtucurr	client_uphost.c	/^unsigned short rtucurr;$/;"	v
+rtutype	client_uphost.c	/^char rtutype=RTUTYPE;                       \/\/record bak$/;"	v
+rtutype	debug.c	/^char rtutype;$/;"	v
+rtutype	display.c	/^char rtutype;$/;"	v
+rtuvolt	client_uphost.c	/^unsigned short rtuvolt;$/;"	v
+runtime	data_global.h	/^	unsigned char runtime[2];$/;"	m	struct:afnbroadtser
+runtime	data_global.h	/^	unsigned char runtime[2];$/;"	m	struct:nodemsg
+runtime	debug.c	/^	unsigned char runtime[2];$/;"	m	struct:afnbroadtser	file:
+runtime	display.c	/^	unsigned char runtime[2];$/;"	m	struct:afnbroadtser	file:
+runtime	linklist.h	/^	unsigned char runtime[2];$/;"	m	struct:afnbroadtser
+rx	data_global.h	/^	unsigned long rx;$/;"	m	struct:disply_node
+rx	debug.c	/^	unsigned long rx;$/;"	m	struct:disply_node	file:
+rx	display.c	/^	unsigned long rx;$/;"	m	struct:disply_node	file:
+rx	linklist.h	/^	long rx;$/;"	m	struct:nodeprivate
+search	frame.c	/^int search(char *pattern,unsigned char *buf,frameloc_s *pframeloc,unsigned char *bufr)                  \/\/judge address and crc$/;"	f
+searchser	frame.c	/^int searchser(unsigned char nodeno,unsigned char *pattern,unsigned char *buf,regmatch_t *pmatch,int nmatch,unsigned char seqs,unsigned char flag_log)                           \/\/judge address and crc and seq$/;"	f
+sec	data_global.h	/^	int sec;$/;"	m	struct:afn04r
+sec	data_global.h	/^	int sec;$/;"	m	struct:afn06r
+sec	data_global.h	/^	unsigned char sec;$/;"	m	struct:afn05
+sec_rec	data_global.h	/^	unsigned char sec_rec;$/;"	m	struct:nodemsg
+self_perror	bak/server.c	/^void self_perror(unsigned char *str)$/;"	f
+self_perror	client_uphost.c	/^void self_perror(unsigned char *str)$/;"	f
+self_perror	server.c	/^void self_perror(unsigned char *str)$/;"	f
+self_printf	bak/server.c	/^void self_printf(unsigned char *str)$/;"	f
+self_printf	client_uphost.c	/^void self_printf(unsigned char *str)$/;"	f
+self_printf	server.c	/^void self_printf(unsigned char *str)$/;"	f
+sem_p	sem.h	/^int sem_p(int semid, int num)$/;"	f
+sem_v	sem.h	/^int sem_v(int semid, int num)$/;"	f
+semun	sem.h	/^union semun {$/;"	u
+send_cmd	bak/server.c	/^int send_cmd(unsigned char nodeno,unsigned char frametype,unsigned char *seqs,int parm,unsigned char timeintno)$/;"	f
+send_cmd	server.c	/^int send_cmd(unsigned char nodeno,unsigned char frametype,unsigned char *seqs,int parm,unsigned char timeintno)$/;"	f
+sensorno	data_global.h	/^	unsigned char sensorno;$/;"	m	struct:afn05
+sensorno	data_global.h	/^	unsigned char sensorno;$/;"	m	struct:afn05r
+sensorno	data_global.h	/^	unsigned char sensorno;$/;"	m	struct:afn06r
+sensorno	linklist.h	/^	unsigned char sensorno;$/;"	m	struct:store_node
+seq	data_global.h	/^	unsigned char seq;$/;"	m	struct:frameinfo
+seq	data_global.h	/^	unsigned char seq;$/;"	m	struct:msgtoser
+seq	data_global.h	/^	unsigned char seq;$/;"	m	struct:passby
+seq	debug.c	/^unsigned char seq;$/;"	v
+seq	display.c	/^unsigned char seq;$/;"	v
+seq	linklist.h	/^	unsigned char seq;$/;"	m	struct:msgtoser
+seq	linklist.h	/^	unsigned char seq;$/;"	m	struct:pass_node
+seql	bak/server.c	/^unsigned char seql;$/;"	v
+seql	client_uphost.c	/^unsigned char  seql=0xff;$/;"	v
+seql	server.c	/^unsigned char seql;$/;"	v
+serial_init	client_uphost.c	/^void serial_init(int fd)$/;"	f
+serverIP	bak/server.c	/^unsigned char serverIP[16];$/;"	v
+serverIP	debug.c	/^unsigned char serverIP[16];$/;"	v
+serverIP	display.c	/^unsigned char serverIP[16];$/;"	v
+serverIP	server.c	/^unsigned char serverIP[16];$/;"	v
+serverPORT	bak/server.c	/^unsigned char serverPORT[6];$/;"	v
+serverPORT	debug.c	/^unsigned char serverPORT[6];$/;"	v
+serverPORT	display.c	/^unsigned char serverPORT[6];$/;"	v
+serverPORT	server.c	/^unsigned char serverPORT[6];$/;"	v
+shm	data_global.h	/^typedef struct shm$/;"	s
+shm	debug.c	/^typedef struct shm$/;"	s	file:
+shm	display.c	/^typedef struct shm$/;"	s	file:
+shm_s	data_global.h	/^} shm_s;$/;"	t	typeref:struct:shm
+shm_s	debug.c	/^} shm_s;$/;"	t	typeref:struct:shm	file:
+shm_s	display.c	/^} shm_s;$/;"	t	typeref:struct:shm	file:
+shmbuf	client_uphost.c	/^shm_s  shmbuf;				   				\/\/buf shm used;$/;"	v
+shmid	data_global.h	/^int shmid;$/;"	v
+shmid	debug.c	/^int shmid;$/;"	v
+shmid	display.c	/^int shmid;$/;"	v
+sleeptime	data_global.h	/^	unsigned char sleeptime[2];$/;"	m	struct:afnbroadtser
+sleeptime	data_global.h	/^	unsigned char sleeptime[2];$/;"	m	struct:nodemsg
+sleeptime	debug.c	/^	unsigned char sleeptime[2];$/;"	m	struct:afnbroadtser	file:
+sleeptime	display.c	/^	unsigned char sleeptime[2];$/;"	m	struct:afnbroadtser	file:
+sleeptime	linklist.h	/^	unsigned char sleeptime[2];$/;"	m	struct:afnbroadtser
+sockfd	client_uphost.c	/^int sockfd;$/;"	v
+sounds	display.c	/^char *sounds[SND_MAX + 1] = {$/;"	v
+store_CreateLinklist	linklist.c	/^store_linklist* store_CreateLinklist()$/;"	f
+store_EmptyLinklist	linklist.c	/^int store_EmptyLinklist(store_linklist* h)$/;"	f
+store_GetLinknode	linklist.c	/^store_linklist* store_GetLinknode(store_linklist* h)$/;"	f
+store_InsertLinklist_tail	linklist.c	/^void store_InsertLinklist_tail(store_linklist* t,unsigned char nodeno,unsigned char sensorno,unsigned char timeintno,time_t time,unsigned char (*buf)[1024])$/;"	f
+store_LengthLinklist	linklist.c	/^int store_LengthLinklist(store_linklist* h)$/;"	f
+store_head	bak/server.c	/^store_linklist *store_head,*store_tail;          \/\/linklist contain 32kb data$/;"	v
+store_head	server.c	/^store_linklist *store_head,*store_tail;          \/\/linklist contain 32kb data$/;"	v
+store_linklist	linklist.h	/^} store_linklist;$/;"	t	typeref:struct:store_node
+store_node	linklist.h	/^typedef struct store_node$/;"	s
+store_tail	bak/server.c	/^store_linklist *store_head,*store_tail;          \/\/linklist contain 32kb data$/;"	v
+store_tail	server.c	/^store_linklist *store_head,*store_tail;          \/\/linklist contain 32kb data$/;"	v
+sum	data_global.h	/^	unsigned short sum;$/;"	m	struct:frameinfo
+surcap_sd	client_uphost.c	/^unsigned short surcap_sd=0xffff;            \/\/$/;"	v
+switch_timeint	bak/server.c	/^	unsigned char switch_timeint;$/;"	m	struct:alarm	file:
+switch_timeint	client_uphost.c	/^unsigned char switch_timeint;               \/\/record bak$/;"	v
+switch_timeint	data_global.h	/^	unsigned char switch_timeint;$/;"	m	struct:shm
+switch_timeint	debug.c	/^	unsigned char switch_timeint;$/;"	m	struct:shm	file:
+switch_timeint	display.c	/^	unsigned char switch_timeint;$/;"	m	struct:shm	file:
+switch_timeint	server.c	/^	unsigned char switch_timeint;$/;"	m	struct:alarm	file:
+switch_timeint_loc	bak/server.c	/^unsigned char switch_timeint_loc;                \/\/RTU time interval$/;"	v
+switch_timeint_loc	debug.c	/^unsigned char switch_timeint_loc;$/;"	v
+switch_timeint_loc	display.c	/^unsigned char switch_timeint_loc;$/;"	v
+switch_timeint_loc	server.c	/^unsigned char switch_timeint_loc;                \/\/RTU time interval$/;"	v
+synctime	rturun/rturun_bak/etc/init.d/S20urandom	/^synctime()$/;"	f
+t	linklist.h	/^	time_t t;$/;"	m	struct:store_node
+t	linklist.h	/^	time_t t;$/;"	m	struct:test_node
+t_login	data_global.h	/^	time_t t_login;$/;"	m	struct:disply_node
+t_login	debug.c	/^	time_t t_login;$/;"	m	struct:disply_node	file:
+t_login	display.c	/^	time_t t_login;$/;"	m	struct:disply_node	file:
+t_login	linklist.h	/^	time_t t_login;$/;"	m	struct:nodeprivate
+t_login_bak	data_global.h	/^	time_t t_login_bak;$/;"	m	struct:disply_node
+t_login_bak	debug.c	/^	time_t t_login_bak;$/;"	m	struct:disply_node	file:
+t_login_bak	display.c	/^	time_t t_login_bak;$/;"	m	struct:disply_node	file:
+t_login_bak	linklist.h	/^	time_t t_login_bak;$/;"	m	struct:nodeprivate
+t_logoff	data_global.h	/^	time_t t_logoff;$/;"	m	struct:disply_node
+t_logoff	debug.c	/^	time_t t_logoff;$/;"	m	struct:disply_node	file:
+t_logoff	display.c	/^	time_t t_logoff;$/;"	m	struct:disply_node	file:
+t_logoff	linklist.h	/^	time_t t_logoff;$/;"	m	struct:nodeprivate
+t_logoff_bak	data_global.h	/^	time_t t_logoff_bak;$/;"	m	struct:disply_node
+t_logoff_bak	debug.c	/^	time_t t_logoff_bak;$/;"	m	struct:disply_node	file:
+t_logoff_bak	display.c	/^	time_t t_logoff_bak;$/;"	m	struct:disply_node	file:
+t_logoff_bak	linklist.h	/^	time_t t_logoff_bak;$/;"	m	struct:nodeprivate
+test_CreateLinklist	linklist.c	/^test_linklist* test_CreateLinklist()$/;"	f
+test_EmptyLinklist	linklist.c	/^int test_EmptyLinklist(test_linklist* h)$/;"	f
+test_GetLinknode	linklist.c	/^test_linklist* test_GetLinknode(test_linklist* h)$/;"	f
+test_InsertLinklist_tail	linklist.c	/^void test_InsertLinklist_tail(test_linklist* t,unsigned char nodeno,time_t time,unsigned char *buf)$/;"	f
+test_LengthLinklist	linklist.c	/^int test_LengthLinklist(test_linklist* h)$/;"	f
+test_bit	display.c	322;"	d	file:
+test_head	bak/server.c	/^test_linklist *test_head,*test_tail;             \/\/linklist contain latest communication time and link_test_frame data$/;"	v
+test_head	server.c	/^test_linklist *test_head,*test_tail;             \/\/linklist contain latest communication time and link_test_frame data$/;"	v
+test_linklist	linklist.h	/^} test_linklist;$/;"	t	typeref:struct:test_node
+test_node	linklist.h	/^typedef struct test_node$/;"	s
+test_tail	bak/server.c	/^test_linklist *test_head,*test_tail;             \/\/linklist contain latest communication time and link_test_frame data$/;"	v
+test_tail	server.c	/^test_linklist *test_head,*test_tail;             \/\/linklist contain latest communication time and link_test_frame data$/;"	v
+tid	bak/server.c	/^	pthread_t tid;$/;"	m	struct:whichnode	file:
+tid	linklist.h	/^	pthread_t tid;                               \/\/pthread id$/;"	m	struct:nodeprivate
+tid	server.c	/^	pthread_t tid;$/;"	m	struct:whichnode	file:
+time_repeat	bak/server.c	/^unsigned char time_repeat;                                 \/\/minute for unit   -- how many seconds send testframe once$/;"	v
+time_repeat	client_uphost.c	/^unsigned char time_repeat;                  \/\/how many time server send testframe once $/;"	v
+time_repeat	data_global.h	/^	unsigned char time_repeat;$/;"	m	struct:shm
+time_repeat	debug.c	/^int time_repeat;$/;"	v
+time_repeat	display.c	/^	unsigned char time_repeat;$/;"	m	struct:shm	file:
+time_repeat	server.c	/^unsigned char time_repeat;                                 \/\/minute for unit   -- how many seconds send testframe once$/;"	v
+timeint	bak/server.c	/^	int timeint[3];$/;"	m	struct:alarm	file:
+timeint	client_uphost.c	/^int timeint[3];                             \/\/record bak$/;"	v
+timeint	data_global.h	/^	int timeint[3];$/;"	m	struct:shm
+timeint	debug.c	/^	int timeint[3];$/;"	m	struct:shm	file:
+timeint	display.c	/^	int timeint[3];$/;"	m	struct:shm	file:
+timeint	server.c	/^	int timeint[3];$/;"	m	struct:alarm	file:
+timeint_loc	bak/server.c	/^int timeint_loc[3];$/;"	v
+timeint_loc	debug.c	/^int timeint_loc[3];$/;"	v
+timeint_loc	display.c	/^int timeint_loc[3];$/;"	v
+timeint_loc	server.c	/^int timeint_loc[3];$/;"	v
+timeintno	linklist.h	/^	unsigned char timeintno;$/;"	m	struct:cmd_node
+timeintno	linklist.h	/^	unsigned char timeintno;$/;"	m	struct:store_node
+timelong	data_global.h	/^	unsigned int timelong;\/\/00$/;"	m	struct:afn05r
+timeset	data_global.h	/^	unsigned char timeset[3];$/;"	m	struct:afnbroadtser
+timeset	debug.c	/^	unsigned char timeset[3];$/;"	m	struct:afnbroadtser	file:
+timeset	display.c	/^	unsigned char timeset[3];$/;"	m	struct:afnbroadtser	file:
+timeset	linklist.h	/^	unsigned char timeset[3];$/;"	m	struct:afnbroadtser
+timeset_one	data_global.h	/^	unsigned char timeset_one;$/;"	m	struct:nodemsg
+timeset_three	data_global.h	/^	unsigned char timeset_three;$/;"	m	struct:nodemsg
+timeset_two	data_global.h	/^	unsigned char timeset_two;$/;"	m	struct:nodemsg
+touchscr_config	rturun/rturun_bak/etc/autorun.sh	/^touchscr_config()$/;"	f
+ts_cal	rturun/rturun_bak/etc/autorun.sh	/^ts_cal() {$/;"	f
+tx	data_global.h	/^	unsigned long tx;$/;"	m	struct:disply_node
+tx	debug.c	/^	unsigned long tx;$/;"	m	struct:disply_node	file:
+tx	display.c	/^	unsigned long tx;$/;"	m	struct:disply_node	file:
+tx	linklist.h	/^	long tx;$/;"	m	struct:nodeprivate
+val	sem.h	/^	int              val;    \/* Value for SETVAL *\/$/;"	m	union:semun
+value	beeplib.h	/^    unsigned char value;$/;"	m	struct:beep_tab
+value	ledlib.h	/^    unsigned char value;$/;"	m	struct:led_tab
+volt	data_global.h	/^	unsigned short volt;$/;"	m	struct:shm
+volt	debug.c	/^	unsigned short volt;$/;"	m	struct:shm	file:
+volt	display.c	/^	unsigned short volt;$/;"	m	struct:shm	file:
+wav_head	client_uphost.c	/^unsigned char wav_head[]={0x52,0x49,0x46,0x46,0x24,0x80,0x00,0x00,0x57,0x41,0x56,0x45,0x66,0x6d,0x74,0x20,$/;"	v
+wav_head	server.c	/^unsigned char wav_head[]={0x52,0x49,0x46,0x46,0x24,0x80,0x00,0x00,0x57,0x41,0x56,0x45,0x66,0x6d,0x74,0x20,$/;"	v
+whichnode	bak/server.c	/^typedef struct whichnode$/;"	s	file:
+whichnode	server.c	/^typedef struct whichnode$/;"	s	file:
+whichnode_s	bak/server.c	/^} whichnode_s;$/;"	t	typeref:struct:whichnode	file:
+whichnode_s	server.c	/^} whichnode_s;$/;"	t	typeref:struct:whichnode	file:
+workmode	data_global.h	/^	unsigned char workmode;$/;"	m	struct:afnbroadtser
+workmode	debug.c	/^	unsigned char workmode;$/;"	m	struct:afnbroadtser	file:
+workmode	display.c	/^	unsigned char workmode;$/;"	m	struct:afnbroadtser	file:
+workmode	linklist.h	/^	unsigned char workmode;$/;"	m	struct:afnbroadtser
+write_file	beeplib.c	/^static int write_file (const char *pfile, char *svalue)$/;"	f	file:
+write_file	ledlib.c	/^static int write_file (const char *pfile, char *svalue)$/;"	f	file:
+year	data_global.h	/^	int year;$/;"	m	struct:afn04r
+year	data_global.h	/^	int year;$/;"	m	struct:afn06r
+year	data_global.h	/^	unsigned int year;$/;"	m	struct:afn05r
+year	data_global.h	/^	unsigned int year;$/;"	m	struct:afn05t
+year_rec	data_global.h	/^	unsigned char year_rec;$/;"	m	struct:nodemsg

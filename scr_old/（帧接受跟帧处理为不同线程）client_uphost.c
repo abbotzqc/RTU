@@ -523,11 +523,20 @@ void handler_framere(int signo)
 /******************************************************************************
  *	pthread: read data from msgqueue to construct frame sending to up server
  ******************************************************************************/
-void pthread_framere(key_t key)
+void *pthread_framere(void *arg)
 {
+#ifdef DEBUG
+	printf("*********************pthread_framere in********************\n");
+#endif
+	key_t key;
+//	msg_s msgbuf;
+//	int flag_reason;     					 //reason of frame fault
+/*	int	flag_msg;         					 //stat of msgrev return  */
+
+/*	char flag_dataat;*/
 	frameloc_s frameloc;
 	frameinfo_s frameinfo;
-
+//	char *pattern;
 	unsigned char buf[N_BUF];//frame[N_FRAME];
 	unsigned char str[64];
 
@@ -540,20 +549,61 @@ void pthread_framere(key_t key)
 	int flag_case=0; 
 
 
-//	pthread_mutex_lock(&mutex_bufr);
-//	for(;;)
+	self_printf("Thread framere start working\n");
+
+	while((key = ftok (PATH_MSG, 'g')) < 0)
+	{
+		self_perror("create msgqueue key faild ");
+		sleep(2);
+	}
+	while((msgid = msgget (key, IPC_CREAT | IPC_EXCL | 0666)) < 0)
+	{
+		if(errno == EEXIST)
+		{
+			msgid = msgget(key, 0666);
+			break;
+		}
+		else
+		{
+			self_perror("get message id faild");
+		}
+	}
+
+//	if((fd_data=open("../data.log",O_RDWR|O_CREAT,0666))<0)
 //	{
+//		printf("client_uphost pthread_framere:open data.log faild\n");
+//		exit(-1);
+//	}
+	
+	pthread_mutex_lock(&mutex_bufr);
+//	while(1)
+	for(;;)
+	{
 
-	//	pthread_cond_wait(&cond_framere,&mutex_bufr);
+		pthread_cond_wait(&cond_framere,&mutex_bufr);
 
+//		if(sizeof(buf)==N_BUF)
+//			strcpy(buf,buf+256);
+/*		int i;*/
 		bzero(bufdata,sizeof(bufdata));
 		bzero(buf,sizeof(buf));
 		for(i=0;i<sizeof(bufr);i++)                     //hex to char
 		{
 			sprintf(buf+(i<<1),"%02x",bufr[i]);
+			//buf[i*2]=xtoa((bufr[i]>>4));
+			//buf[i*2+1]=xtoa(bufr[i]&0x0f);
 		}
-	//	pthread_mutex_unlock(&mutex_bufr);
+	//	strcat(buf,bufr);                  
+		pthread_mutex_unlock(&mutex_bufr);
+#ifdef DEBUG
+		printf("frame receive: %s\n",buf);
+#endif
+//		self_printf("socket read ");
+//		printf("%s\n",buf);
+//		fflush(stdout);
 
+	/*	char pattern=PATTERN;
+		if(search(pattern,buf,&frameloc,bufr)==0)*/
 		if(search(PATTERN,buf,&frameloc,bufr)==0)
 		{
 			if(flag_passby==1)
@@ -562,12 +612,12 @@ void pthread_framere(key_t key)
 				msgtocli_s msgbuff;
 				msgbuf.msgtype=MSG_TOSER;
 				while(msgrcv(msgid,&msgbuf,sizeof(msgbuf)-sizeof(long),MSG_TOSER,IPC_NOWAIT)>0);
-			//	pthread_mutex_lock(&mutex_bufr);
+				pthread_mutex_lock(&mutex_bufr);
 				memcpy(msgbuf.addr,bufr+1,4);
 				msgbuf.seq=bufr[7];
 				msgbuf.afn=bufr[14];
 				memcpy(msgbuf.buf,bufr,sizeof(msgbuf.buf));
-			//	pthread_mutex_unlock(&mutex_bufr);
+				pthread_mutex_unlock(&mutex_bufr);
 				while(msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT)>0);
 				if(msgsnd(msgid,&msgbuf,sizeof(msgbuf)-sizeof(long),0)<0)
 				{
@@ -577,15 +627,15 @@ void pthread_framere(key_t key)
 					flag_reason=ERR_EXEC;
 					funafnpass(bufdata,flag_reason,msgbuf);
 
-				//	pthread_mutex_lock(&mutex_buft);
+					pthread_mutex_lock(&mutex_buft);
 					memcpy(buft,bufdata,sizeof(bufdata));
-				//	pthread_mutex_unlock(&mutex_buft);
+					pthread_mutex_unlock(&mutex_buft);
 
 					flag_reason=0;
 				}
 				else
 				{
-					//bzero(str,sizeof(str));
+					bzero(str,sizeof(str));
 					self_perror("send message to server");
 					/*
 					sprintf(str,"sended to server : %s",msgbuf.buf);
@@ -614,12 +664,6 @@ void pthread_framere(key_t key)
 							case 0xf2:
 								size_buft=19;
 								break;
-							case 0x02:                                          //2014.10.10 支持透传改地址
-								size_buft=19;
-								break;
-							default:
-								size_buft=19;
-								break;
 							}
 						repeat_pass=1;
 					}
@@ -642,53 +686,30 @@ void pthread_framere(key_t key)
 					}
 				
 					bzero(buf32k,sizeof(buf32k));
-					if(overtime_server==0)
-						sleep(2);
-					else
-						sleep(overtime_server<<1);
-
-					sleeptime=overtime_client*1000000;               //ns
-
+					sleep(2);
 					while(repeat_pass--)
 					{
-						sleeptime=overtime_client*1000000;               //ns
 						while((flag_msgrcv=msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT))<0)
 						{
-//							if((sleeptime--)==0)
-//							{
-//								//goto out;
-//								self_printf("-------sleeptime over\n");
-//#ifdef DEBUG
-//								printf("flag_msgrcv %d\n",flag_msgrcv);
-//#endif
-//								break;
-//							}
-
-							if(sleeptime!=0)
+							if((sleeptime--)==0)
 							{
-								usleep(50000);
-								sleeptime-=50000;
-							}
-							else
-							{
-								self_printf("-------sleeptime over\n");
+								//goto out;
+#ifdef DEBUG
+								printf("flag_msgrcv %d\n",flag_msgrcv);
+#endif
 								break;
 							}
-							
 						}
 #ifdef DEBUG
 						printf("691\n");
 #endif
 						if(!(flag_msgrcv<0))
 						{
-							//if(repeat_pass==0)
-								bzero(str,sizeof(str));
-								sprintf(str,"%d ",repeat_pass);
-								self_perror(str);
-								self_perror("receive message from server");
 							//flag_msgrcv=1;                                //msgrcv receive over	
-						//	pthread_mutex_lock(&mutex_buft);
-							
+							pthread_mutex_lock(&mutex_buft);
+#ifdef DEBUG
+							printf("698\n");
+#endif
 							if(msgbuf.afn==0xf0||msgbuf.afn==0xf1)
 							{
 								memcpy(buft,msgbuff.buf,sizeof(msgbuff.buf));
@@ -698,47 +719,36 @@ void pthread_framere(key_t key)
 								memcpy(buft,msgbuff.buf,46);
 							if(msgbuff.err_flag==1)
 							{
-								if((wh=1)&&(msgbuff.buf[15]==0xe3||msgbuff.buf[15]==0xe5||msgbuff.buf[15]==ERR_NODEBUSY||msgbuff.buf[15]==ERR_PASS))
-								{
-									flag_loop=0;
-									flag_reason=0;
-									wh=0;
-									while(msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT)>0);
-									size_buft=19;
-									//	pthread_mutex_unlock(&mutex_buft);
-									goto out;
-								}
+							if((wh=1)&&(msgbuff.buf[15]==0xe3||msgbuff.buf[15]==0xe5||msgbuff.buf[15]==ERR_NODEBUSY||msgbuff.buf[15]==ERR_PASS))
+							{
+								flag_loop=0;
+								flag_reason=0;
+								wh=0;
+								while(msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT)>0);
+								size_buft=19;
+								pthread_mutex_unlock(&mutex_buft);
+								goto out;
 							}
+							}
+						//	pthread_mutex_unlock(&mutex_buft);
 						}
 						else
 						/* if(flag_msgrcv<0)   */
 						{
-							if(wh==3)
-							{
 							//flag_msgrcv=1;                                //msgrcv receive over	
 							flag_reason=ERR_OVERTIMEC;
-						//	pthread_mutex_lock(&mutex_buft);
+							//if(flag_reason==ERR_OVERTIME)
+							//funafnpass(bufdata,flag_reason,msgbuf);
+							pthread_mutex_lock(&mutex_buft);
 							funafnpass(buft,flag_reason,&msgbuf);
-							flag_loop=0;
-							flag_reason=0;
-							wh=0;
-							memcpy(buf32k[repeat_pass],buft,sizeof(buft));
-							self_printf("---------701\n");
-							break;
-					  		}
-					  		else
-							{
-					  			wh++;                              //repeat time;
-								repeat_pass++;
-							}
+						//	pthread_mutex_unlock(&mutex_buft);
 						}
 
 						memcpy(buf32k[repeat_pass],buft,sizeof(buft));
-					//	pthread_mutex_unlock(&mutex_buft);
+						pthread_mutex_unlock(&mutex_buft);
 					}
 				}
-				
-				self_printf("--------713\n");                                       //接收透传回传完毕
+
 				while(msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT)>0);
 			}
 			else
@@ -749,14 +759,13 @@ void pthread_framere(key_t key)
 			}
 			//	strcpy(buf,buf+256);
 			//return 0;
-out: //   	pthread_cond_signal(&cond_write);
+out:    	pthread_cond_signal(&cond_write);
 			flag_passby=0;
 
 #ifdef DEBUG
 			printf("search : cond_write\n");
 #endif
-			return;
-		//	continue;
+			continue;
 		}
 		//strncpy(bufframe,frameloc.phead,frameloc.len);
 		//strcpy(buf,frameloc.phead+frameloc.len);
@@ -765,11 +774,20 @@ out: //   	pthread_cond_signal(&cond_write);
 #ifdef DEBUG
 			printf("framere analysis : analysis wrong\n");
 #endif
-	//		pthread_cond_signal(&cond_write);
-	//		continue;
-			return;
+			pthread_cond_signal(&cond_write);
+			continue;
 		}
 	
+//		int fd;                             //read data file
+//		afn05_s afn05[128];					
+//		regex_t reg;
+//		char errbuf[1024];
+//		int err;
+//		int cflag=REG_EXTENDED;
+//		int nmatch=1;
+//		unsigned char bufsource[48];
+//		regmatch_t pmatch[nmatch];
+/*		bzero(bufdata,sizeof(bufdata));*/
 		flag_case=0;
 		switch(frameinfo.afn)
 		{
@@ -778,11 +796,24 @@ out: //   	pthread_cond_signal(&cond_write);
 #ifdef DEBUG
 				printf("client_uphost pthread_framere : case 0x01 in\n");
 #endif
-				//	pthread_cond_signal(&cond_sdsize);	
+				/*	msgnode_s msgnodebuf;*/
+					pthread_cond_signal(&cond_sdsize);	
+				/*	afn01t_s afn01t;
+					afn01t.rtutype=rtutype;
+					afn01t.rtuvolt=rtuvolt;
+					afn01t.rtucurr=rtucurr;
+					afn01t.rtuversion=itoc_bcd(RTUVERSION_M);
+					afn01t.rtuversion<<=8;
+					afn01t.rtuversion+=itoc_bcd(RTUVERSION_S);*/
+				/*	if(frameinfo.addr==rtuaddr)
+					{
+						funafn01t(bufdata)//,&afn01t);
+					}
+					else */
 					if(frameinfo.addr==BROADCASTADDR||frameinfo.addr==rtuaddr)
 					{
 						//datazonelen=-1;
-				//		pthread_cond_signal(&cond_shm);             //wakeup shm pthread
+						pthread_cond_signal(&cond_shm);             //wakeup shm pthread
 #ifdef DEBUG
 						printf("client_uphost pthread_framere : case 0x01 send cond_shm\n");
 #endif
@@ -1011,6 +1042,19 @@ out: //   	pthread_cond_signal(&cond_write);
 			}
 		case 0x06:
 			{
+#ifdef DEBUG
+				printf("client_uphost pthread_framere : case 0x06 in\n");
+#endif
+			/*	int fd;           //read data file
+				unsigned char path[64]; */
+				regex_t reg;
+				char errbuf[1024];
+				int err;
+				int cflag=REG_EXTENDED;
+				int nmatch=1;
+				unsigned char bufsource[48];
+				regmatch_t pmatch[nmatch];
+
 				afn06r_s afn06r;
 				afn06t_s afn06t;
 				funafn06r(&afn06r,frameinfo.pdata);
@@ -1056,14 +1100,14 @@ out: //   	pthread_cond_signal(&cond_write);
 				}
 				//	sleep(1);
 				//	printf("0x06 mutex_buft own		%d\n",counter++);
-		//		pthread_mutex_lock(&mutex_buft);
+				pthread_mutex_lock(&mutex_buft);
 				//	printf("case 0x06 mutex_buft	%d\n",counter++);
 				sprintf(buft,"success",10);
-		//		pthread_mutex_unlock(&mutex_buft);
+				pthread_mutex_unlock(&mutex_buft);
 				//	printf("cond_write   	 %d\n",counter++);
 				flag_case=1;         //jump out big while
-		//		pthread_mutex_lock(&mutex_bufr);
-		//		pthread_cond_signal(&cond_write);
+				pthread_mutex_lock(&mutex_bufr);
+				pthread_cond_signal(&cond_write);
 				close(fd);
 #ifdef DEBUG
 				printf("client_uphost pthread_framere : case 0x06 out\n");
@@ -1101,22 +1145,38 @@ out: //   	pthread_cond_signal(&cond_write);
 			
 		if(flag_case==1)
 		{
-		//	continue;
-			return;
+			continue;
 		}
-	//	usleep(100);
-	//	pthread_mutex_lock(&mutex_buft);
-		
+#ifdef DEBUG
+		printf("client_uphost pthread_framere : switch out\n");
+#endif
+		usleep(100);
+		pthread_mutex_lock(&mutex_buft);
+#ifdef DEBUG
+		printf("client_uphost pthread_framere : own mutex_buft\n");
+#endif
 		memcpy(buft,bufdata,sizeof(bufdata));
-		//	pthread_mutex_unlock(&mutex_buft);
+		//	int k;
+		//	printf("XXXXXXbufdata:\n");
+		//		for(k=0;k<N_READ;k++)
+		//		{
+		//			printf("%x",bufdata[k]);
+		//		printf("client_uphost pthread_framere:bufdata[%d] %x",k,bufdata[k]);
+		//		printf("client_uphost pthread_framere:buft[%d] %x\n",k,buft[k]);
+		//		}
+		//		printf("\n");
+		pthread_mutex_unlock(&mutex_buft);
 		
-	//	pthread_mutex_lock(&mutex_bufr);
+		pthread_mutex_lock(&mutex_bufr);
 
-	//	pthread_cond_signal(&cond_write);
+		pthread_cond_signal(&cond_write);
 
+	//	unsigned char *p=malloc(sizeof(unsigned char));
+	//	*p=REC_SEQL;
+	//	pthread_create(&id_parm,0,&pthread_parm,p);
 	
-//	}
-	return ;
+	}
+	return NULL;
 }
 
 /*******************************************************************************
@@ -1480,31 +1540,17 @@ void *pthread_UPclient(void *arg)
 	int stat;
 	int stat_sel;
 
+	//char s[128]={};
+	//char ss[32]={};
+	//char s[32]={};
 	unsigned char str[32];
-	key_t key;
+
 	int keepidle,keepcnt,keepintval,keepalive=1;
 
 	self_printf("Thread UPclient start working\n");
-
-	while((key = ftok (PATH_MSG, 'g')) < 0)
-	{
-		self_perror("create msgqueue key faild ");
-		sleep(2);
-	}
-	while((msgid = msgget (key, IPC_CREAT | IPC_EXCL | 0666)) < 0)
-	{
-		if(errno == EEXIST)
-		{
-			msgid = msgget(key, 0666);
-			break;
-		}
-		else
-		{
-			self_perror("get message id faild");
-		}
-	}
-
-
+#ifdef DEBUG
+	printf("*********************pthread_UPclient in*******************\n");
+#endif
 	if(arg==NULL)
 	{
 		serv_addr.sin_family	 =AF_INET;
@@ -1548,6 +1594,7 @@ start:
 
 	while(1)
 	{
+		//	printf("client_uphost pthread_UPclient:while in\n");
 		if((connect(sockfd,(struct sockaddr *)&serv_addr,sizeof(serv_addr)))<0)
 		{
 		//	sprintf(ss,"connect faild ");
@@ -1600,7 +1647,7 @@ start:
 #ifdef DEBUG
 				printf("client_uphost pthread_UPclient : read in\n");
 #endif 
-			//	pthread_mutex_lock(&mutex_bufr);
+				pthread_mutex_lock(&mutex_bufr);
 #ifdef DEBUG
 				printf("client_uphost pthread_UPclient : mutex_bufr own\n");
 #endif
@@ -1612,7 +1659,7 @@ start:
 					self_perror("socket read ");
 					if(stat==0)
 					{
-						//	pthread_mutex_unlock(&mutex_bufr);
+							pthread_mutex_unlock(&mutex_bufr);
 							pthread_cancel(id_led);
 							pthread_join(id_led,NULL);
 							led_ctrl("D6",ON);
@@ -1626,7 +1673,7 @@ start:
 						else
 							//if(errno==ETIMEDOUT)
 						{
-						//	pthread_mutex_unlock(&mutex_bufr);
+							pthread_mutex_unlock(&mutex_bufr);
 							pthread_cancel(id_led);
 							pthread_join(id_led,NULL);
 							led_ctrl("D6",ON);
@@ -1642,447 +1689,35 @@ read_unnon:
 				pthread_mutex_unlock(&mutex_led);
 				pthread_kill(id_led,SIGUSR2);
 
-			/*	pthread_mutex_unlock(&mutex_bufr);
+#ifdef DEBUG
+				printf("client_uphost pthread_UPclient : select read : %s\n",bufr);
+#endif
+				pthread_mutex_unlock(&mutex_bufr);
+#ifdef DEBUG
+				printf("client_uphost pthread_UPclient : mutex_bufr free\n");
+#endif
 
 				pthread_mutex_lock(&mutex_buft);
-			  
+#ifdef DEBUG
+				printf("client_uphost pthread_UPclient : mutex_buft own\n");
+#endif
+				
 				usleep(500);
 				pthread_cond_signal(&cond_framere);
 				pthread_cond_wait(&cond_write,&mutex_buft);
-			*/
 
+				//	pthread_create(&id_led,0,&pthread_led,NULL);
+			//	pthread_cond_signal(&cond_framere);
+				//	pthread_mutex_lock(&mutex_led);
+				//	flag_led=1;
+				//	pthread_mutex_unlock(&mutex_led);
+				//	pthread_cond_signal(&cond_led);
+#ifdef DEBUG
+				printf("client_uphost pthread_UPclient : send cond_framere\n");
+#endif
+
+				//self_printf("socket read : ");
 				printf("<<RTU>>\n");
-				//pthread_framere(key);
-
-				frameloc_s frameloc;
-				frameinfo_s frameinfo;
-				unsigned char buf[N_BUF];//frame[N_FRAME];
-				unsigned char str[64];
-				int repeat_pass,i;     
-				unsigned char path[64];
-				int fd;
-				int flag_case=0; 
-				bzero(bufdata,sizeof(bufdata));
-				bzero(buf,sizeof(buf));
-				for(i=0;i<sizeof(bufr);i++)                     //hex to char
-				{
-					sprintf(buf+(i<<1),"%02x",bufr[i]);
-				}
-				if(search(PATTERN,buf,&frameloc,bufr)==0)
-				{
-					if(flag_passby==1)
-					{
-						self_printf("receive from host : ");
-						for(i=0;i<stat;i++)
-						{
-							printf("%02x",bufr[i]);
-						}
-						printf("\n");
-						fflush(stdout);
-
-						msgtoser_s msgbuf;
-						msgtocli_s msgbuff;
-						msgbuf.msgtype=MSG_TOSER;
-						while(msgrcv(msgid,&msgbuf,sizeof(msgbuf)-sizeof(long),MSG_TOSER,IPC_NOWAIT)>0);
-						memcpy(msgbuf.addr,bufr+1,4);
-						msgbuf.seq=bufr[7];
-						msgbuf.afn=bufr[14];
-						memcpy(msgbuf.buf,bufr,sizeof(msgbuf.buf));
-						while(msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT)>0);
-						if(msgsnd(msgid,&msgbuf,sizeof(msgbuf)-sizeof(long),0)<0)
-						{
-							self_perror("send message faild ");
-							flag_reason=ERR_EXEC;
-							funafnpass(bufdata,flag_reason,msgbuf);
-							memcpy(buft,bufdata,sizeof(bufdata));
-							flag_reason=0;
-						}
-						else
-						{
-							self_perror("send message to server");
-							int sleeptime,flag_msgrcv,wh=1;
-							if((msgbuf.afn!=0xf0)&&(msgbuf.afn!=0xf1))
-							{
-								(overtime_client==0)?(sleeptime=1500000):(sleeptime=overtime_client*1500000);
-								switch(msgbuf.afn)
-								{
-								case 0x01:
-									size_buft=40;
-									break;
-								case 0x04:
-									size_buft=19;
-									break;
-								case 0xf2:
-									size_buft=19;
-									break;
-								case 0x02:                                          //2014.10.10 支持透传改地址
-									size_buft=19;
-									break;
-								default:
-									size_buft=19;
-									break;
-								}
-								repeat_pass=1;
-							}
-							else
-							{
-								(overtime_client==0)?(sleeptime=6000000):(sleeptime=overtime_client*6000000);
-								if(msgbuf.afn==0xf0)
-								{
-									repeat_pass=32;
-									flag_loop=32;
-									flag_reason=0xff;
-								}
-								else
-								{
-									repeat_pass=1;
-								}
-								size_buft=sizeof(buft);
-							}
-							bzero(buf32k,sizeof(buf32k));
-							if(overtime_server==0)
-								sleep(2);
-							else
-								sleep(overtime_server<<1);
-
-							sleeptime=overtime_client*1000000;               //ns
-
-							while(repeat_pass--)
-							{
-								sleeptime=overtime_client*1000000;               //ns
-								while((flag_msgrcv=msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT))<0)
-								{
-									if(sleeptime!=0)
-									{
-										usleep(50000);
-										sleeptime-=50000;
-									}
-									else
-									{
-										self_printf("-------sleeptime over\n");
-										break;
-									}
-
-								}
-								if(!(flag_msgrcv<0))
-								{
-									bzero(str,sizeof(str));
-									sprintf(str,"%d ",repeat_pass);
-									self_perror(str);
-									self_perror("receive message from server");
-									if(msgbuf.afn==0xf0||msgbuf.afn==0xf1)
-									{
-										memcpy(buft,msgbuff.buf,sizeof(msgbuff.buf));
-									}	
-									else
-										memcpy(buft,msgbuff.buf,46);
-									if(msgbuff.err_flag==1)
-									{
-										if((wh=1)&&(msgbuff.buf[15]==0xe3||msgbuff.buf[15]==0xe5||msgbuff.buf[15]==ERR_NODEBUSY||msgbuff.buf[15]==ERR_PASS))
-										{
-											flag_loop=0;
-											flag_reason=0;
-											wh=0;
-											while(msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT)>0);
-											size_buft=19;
-											goto out;
-										}
-									}
-								}
-								else
-								{
-									if(wh==3)
-									{
-										flag_reason=ERR_OVERTIMEC;
-										funafnpass(buft,flag_reason,&msgbuf);
-										flag_loop=0;
-										flag_reason=0;
-										wh=0;
-										memcpy(buf32k[repeat_pass],buft,sizeof(buft));
-										self_printf("---------701\n");
-										break;
-									}
-									else
-									{
-										wh++;                              //repeat time;
-										repeat_pass++;
-									}
-								}
-
-								memcpy(buf32k[repeat_pass],buft,sizeof(buft));
-
-								FD_ZERO(&write_flags);
-								FD_SET(sockfd,&write_flags);
-								waitd.tv_sec=1;
-								stat_sel=select(sockfd+1,NULL,&write_flags,NULL,&waitd);
-								if(!(stat_sel>0))
-									continue;
-								stat=write(sockfd,buft,sizeof(buft));
-								if(stat<0)
-								{
-									self_perror("write socket ");
-									if(errno==EAGAIN)
-									{
-										i--;
-										usleep(100);
-										continue;
-									}
-									if(errno==ENOTCONN)
-									{
-										break;
-									}
-									if(errno==EPIPE)
-									{
-										//	pthread_mutex_unlock(&mutex_buft);
-										pthread_cancel(id_led);
-										pthread_join(id_led,NULL);
-										led_ctrl("D6",ON);
-										close(sockfd);
-										goto start;
-									}
-								}
-							}
-						}
-						self_printf("--------713\n");                                       //接收透传回传完毕
-						while(msgrcv(msgid,&msgbuff,sizeof(msgbuff)-sizeof(long),MSG_TOCLIENT,IPC_NOWAIT)>0);
-					}
-out:
-					flag_passby=0;
-				}
-				else
-				{
-					if(analysis(bufframe,&frameinfo)<=0) 
-					{
-						continue;
-					}
-					flag_case=0;
-					switch(frameinfo.afn)
-					{
-					case 0x01:	
-						{
-							if(frameinfo.addr==BROADCASTADDR||frameinfo.addr==rtuaddr)
-							{
-								afnbroadt_s afnbroadt;
-								int j;
-								unsigned char buflog2[32]={};
-								unsigned char buflog[64]={};
-								for(i=1;i<5;i++)
-								{
-									bzero(path,sizeof(path));
-									strcpy(path,PATH_LINK);
-									sprintf(path+strlen(PATH_LINK),"node%d/testframe.log",i);
-									if((fd=open(path,O_RDWR,0666))<0)
-									{
-										afnbroadt.nodemsg[i-1].year_rec=0;
-									}
-									else
-									{
-										bzero(buflog,sizeof(buflog));
-										bzero(buflog2,sizeof(buflog2));
-										if(lseek(fd,-57,SEEK_END)<0)
-										{
-											self_printf("case 0x01 : lseek faild\n");
-											afnbroadt.nodemsg[i-1].year_rec=0;
-											close(fd);
-											continue;
-										}
-										if(read(fd,buflog,57)<0)
-										{
-											self_printf("case 0x01 : read testframe faild\n");
-										}
-
-										for(j=0;j<strlen(buflog);j++)
-										{
-											if(buflog[j]>='0'&&buflog[j]<='9')
-												buflog2[j/2]+=buflog[j]-'0';
-											else if(buflog[j]>='a'&&buflog[j]<='f')
-												buflog2[j/2]+=buflog[j]-'a'+0x0a;
-											else if(buflog[j]>='A'&&buflog[j]<='F')
-												buflog2[j/2]+=buflog[j]-'A'+0x0a;
-											if(j%2==0)
-												buflog2[j/2]<<=4;
-										}
-										memcpy(&afnbroadt.nodemsg[i-1],buflog2,strlen(buflog)/2);
-									}
-									close(fd);
-								}
-								funafnbroadcastt(bufdata,&afnbroadt);
-								size_buft=151;
-							}
-							break;
-						}
-					case 0x02:
-						{
-							afn02r_s afn02r;
-							flag_reason=funafn02r(&afn02r,frameinfo.pdata);
-							rtuaddr=afn02r.addrall;
-							unsigned char *p=malloc(sizeof(unsigned char));
-							*p=REC_RTUADDR;
-							pthread_create(&id_parm,0,&pthread_parm,p);
-							funafn02t(bufdata,flag_reason);
-							size_buft=19;
-							break;
-						}
-					case 0x04: 
-						{
-							unsigned char string[64];
-							afn04r_s afn04r;
-							flag_reason=funafn04r(&afn04r,frameinfo.pdata);
-							sprintf(string,"date -s %d.%d.%d-%02d:%02d:%02d\n",afn04r.year,afn04r.month,afn04r.day,afn04r.hour,afn04r.min,afn04r.sec);
-							if(system(string)<0)
-							{
-								self_perror("set date faild ");
-								flag_reason=FAILD;
-							}
-							funafn04t(bufdata,flag_reason);
-							size_buft=19;
-							break;
-						}
-					case 0x05:  
-						{
-							afn05_s afn05[128]={};					
-							regex_t reg;
-							char errbuf[1024];
-							int err;
-							int cflag=(REG_EXTENDED|REG_ICASE);
-							int nmatch=1;
-							regmatch_t pmatch[nmatch];
-							afn05r_s afn05r;
-							unsigned char bufsource[37];
-							afn05t_s afn05t;
-							unsigned char string[84];//[64];
-							funafn05r(&afn05r,frameinfo.pdata);
-							bzero(path,sizeof(path));
-							strcpy(path,PATH_MEDIA);
-							sprintf(path+strlen(PATH_MEDIA),"%d-%02d-%02d/index.log",afn05r.year,afn05r.month,afn05r.day);
-							bzero(string,sizeof(string));
-							if(afn05r.nodeno==0)
-							{
-								if(afn05r.sensorno==0)
-									sprintf(string,"/timeint_%d/node[1-4]/sensor[1-6]/[0-2][0-9]:[0-6][0-9]:[0-6][0-9].wav",afn05r.hour);
-								else
-									sprintf(string,"/timeint_%d/node[1-4]/sensor%d/[0-2][0-9]:[0-6][0-9]:[0-6][0-9].wav",afn05r.hour,afn05r.sensorno);
-							}
-							else
-							{
-								if(afn05r.sensorno==0)
-									sprintf(string,"/timeint_%d/node%d/sensor[1-6]/[0-2][0-9]:[0-6][0-9]:[0-6][0-9].wav",afn05r.hour,afn05r.nodeno);
-								else
-									sprintf(string,"/timeint_%d/node%d/sensor%d/[0-2][0-9]:[0-6][0-9]:[0-6][0-9].wav",afn05r.hour,afn05r.nodeno,afn05r.sensorno);
-							}
-							afn05t.recordsum=0;
-							bzero(&afn05t,sizeof(afn05t));
-							if((fd=open(path,O_RDWR|O_CREAT,0666))<0)
-							{
-								self_perror("open index.log faild ");
-								afn05t.year=afn05r.year;
-								afn05t.month=afn05r.month;
-								afn05t.day=afn05r.day;
-								afn05t.pafn05=afn05;
-								funafn05t(bufdata,&afn05t);
-								break;
-							}
-							while(read(fd,bufsource,sizeof(bufsource))>0)
-							{
-								if(regcomp(&reg,string,cflag)<0)
-								{
-									regerror(err,&reg,errbuf,sizeof(errbuf));
-									self_perror("case 0x05 regcomp faild ");
-								}
-								err=regexec(&reg,bufsource,nmatch,pmatch,0);
-								if(err==REG_NOMATCH)
-								{
-									lseek(fd,1,SEEK_CUR);             //1
-									regfree(&reg);
-									continue;
-								}
-								else if(err)
-								{
-									regerror(err,&reg,errbuf,sizeof(errbuf));
-									lseek(fd,1,SEEK_CUR);             //1
-									regfree(&reg);
-									continue;	
-								}
-								afn05[afn05t.recordsum].nodeno=*(bufsource+pmatch[0].rm_so+15)-'0';
-								afn05[afn05t.recordsum].sensorno=*(bufsource+pmatch[0].rm_so+23)-'0';
-								afn05[afn05t.recordsum].hour=(*(bufsource+pmatch[0].rm_so+25)-'0')<<4;
-								afn05[afn05t.recordsum].hour+=*(bufsource+pmatch[0].rm_so+26)-'0';
-								afn05[afn05t.recordsum].min=(*(bufsource+pmatch[0].rm_so+28)-'0')<<4;
-								afn05[afn05t.recordsum].min+=*(bufsource+pmatch[0].rm_so+29)-'0';
-								afn05[afn05t.recordsum].sec=(*(bufsource+pmatch[0].rm_so+31)-'0')<<4;
-								afn05[afn05t.recordsum].sec+=*(bufsource+pmatch[0].rm_so+32)-'0';
-								afn05t.recordsum++;
-								bzero(bufsource,sizeof(bufsource));
-								lseek(fd,1,SEEK_CUR);             
-							}
-							regfree(&reg);
-							afn05t.year=afn05r.year;
-							afn05t.month=afn05r.month;
-							afn05t.day=afn05r.day;
-							afn05t.pafn05=afn05;
-							funafn05t(bufdata,&afn05t);
-							size_buft=sizeof(bufdata);
-							close(fd);
-							break;
-						}
-					case 0x06:
-						{
-							afn06r_s afn06r;
-							afn06t_s afn06t;
-							funafn06r(&afn06r,frameinfo.pdata);
-							bzero(path,sizeof(path));
-							strcpy(path,PATH_MEDIA);
-							sprintf(path+strlen(PATH_MEDIA),"%d-%02d-%02d/node%d/sensor%d/%02d.%02d.%02d.wav",afn06r.year,afn06r.month,afn06r.day,afn06r.nodeno,afn06r.sensorno,afn06r.hour,afn06r.min,afn06r.sec);
-							if((fd=open(path,O_RDWR,0666))<0)
-							{
-								flag_reason=1;               //NONE
-								flag_loop=1;
-							}
-							else
-							{
-								unsigned char a='0';
-								read(fd,&a,1);
-								if(a=='N')
-								{
-									read(fd,buf32k[0],2);
-									flag_reason=(unsigned char)strtol(buf32k[0],NULL,16);
-									flag_loop=1;
-								}
-								else
-								{
-									lseek(fd,LEN_WANH,SEEK_SET);
-									for(i=0;i<32;i++)
-									{
-										flag_case=read(fd,buf32k[i],1024);
-									}
-									flag_loop=32;
-								}
-							}
-							sprintf(buft,"success",10);
-							flag_case=1;         //jump out big while
-							close(fd);
-							break;
-						}
-					case 0xf3:	
-						{
-							flag_reason=funafnf3r(frameinfo.pdata);
-							unsigned char *p=malloc(sizeof(unsigned char));
-							*p=REC_TIMEINT;
-							pthread_create(&id_parm,0,&pthread_parm,p);
-							funafnf3t(bufdata,flag_reason);
-							size_buft=19;
-							break;
-						}
-					default:break;
-					}
-
-					if(flag_case!=1)
-					{
-						memcpy(buft,bufdata,sizeof(bufdata));
-					}
-				}
-				
-				//printf("<<RTU>>\n");
 				self_printf("receive from host : ");
 				for(i=0;i<stat;i++)
 				{
@@ -2107,7 +1742,7 @@ out:
 							}
 							if(errno==EPIPE)
 							{
-							//	pthread_mutex_unlock(&mutex_buft);
+								pthread_mutex_unlock(&mutex_buft);
 								pthread_cancel(id_led);
 								pthread_join(id_led,NULL);
 								led_ctrl("D6",ON);
@@ -2159,7 +1794,7 @@ out:
 										if(errno==EAGAIN)
 										{
 											i--;
-											usleep(100);
+										//	usleep(100);
 											continue;
 										}
 										if(errno==ENOTCONN)
@@ -2168,7 +1803,7 @@ out:
 										}
 										if(errno==EPIPE)
 										{
-										//	pthread_mutex_unlock(&mutex_buft);
+											pthread_mutex_unlock(&mutex_buft);
 											pthread_cancel(id_led);
 											pthread_join(id_led,NULL);
 											led_ctrl("D6",ON);
@@ -2192,7 +1827,7 @@ out:
 									}
 									if(errno==EPIPE)
 									{
-									//	pthread_mutex_unlock(&mutex_buft);
+										pthread_mutex_unlock(&mutex_buft);
 										pthread_cancel(id_led);
 										pthread_join(id_led,NULL);
 										led_ctrl("D6",ON);
@@ -2221,7 +1856,7 @@ out:
 									if(errno==EAGAIN)
 									{
 										i--;
-										usleep(100);
+									//	usleep(100);
 										continue;
 									}
 									if(errno==ENOTCONN)
@@ -2230,7 +1865,7 @@ out:
 									}
 									if(errno==EPIPE)
 									{
-									//	pthread_mutex_unlock(&mutex_buft);
+										pthread_mutex_unlock(&mutex_buft);
 										pthread_cancel(id_led);
 										pthread_join(id_led,NULL);
 										led_ctrl("D6",ON);
@@ -2271,7 +1906,7 @@ out:
 				}
 				else
 					self_printf("transmit buf NULL \n");
-			//	pthread_mutex_unlock(&mutex_buft);
+				pthread_mutex_unlock(&mutex_buft);
 
 				//	pthread_mutex_lock(&mutex_led);
 				//	flag_led=0;
@@ -2301,7 +1936,7 @@ out:
 			}
 		}
 
-	//	pthread_mutex_unlock(&mutex_buft);
+		pthread_mutex_unlock(&mutex_buft);
 	
 		pthread_cancel(id_led);
 		pthread_join(id_led,NULL);
@@ -2409,7 +2044,7 @@ int main(int argc, const char *argv[])                            //client_uphos
 	pthread_create(&id_parm,0,&pthread_parm,NULL);
 	sleep(2);
 	pthread_create(&id_vol,0,&pthread_vol,NULL);
-//	pthread_create(&id_framere,0,&pthread_framere,NULL);
+	pthread_create(&id_framere,0,&pthread_framere,NULL);
 	pthread_create(&id_shm,0,&pthread_shm,NULL);
 
 	if(argc==3)
@@ -2434,7 +2069,7 @@ int main(int argc, const char *argv[])                            //client_uphos
 //	pthread_join(id_parm,NULL);
 	pthread_join(id_UPclient,NULL);
 //	pthread_join(id_wrong,NULL);
-//	pthread_join(id_framere,NULL);
+	pthread_join(id_framere,NULL);
 	pthread_join(id_shm,NULL);
 	pthread_join(id_sdsize,NULL);
 	pthread_join(id_led,NULL);

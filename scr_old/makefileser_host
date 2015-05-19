@@ -1,0 +1,14 @@
+CC=gcc
+#CC=arm-none-linux-gnueabi-gcc
+AFLAGS=-c -g -rdynamic
+LDFLAGS= -lpthread# -L ../lib #-lsqlite3
+OBJS=server.o frame.o ledlib.o beeplib.o linklist.o 
+DWserver:$(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+$(OBJS):%.o:%.c
+	$(CC) $(AFLAGS) $< -o $@
+
+.PHONY:clean
+clean:
+	rm *.o DWserver #warehouse.db
+
